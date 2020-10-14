@@ -1,4 +1,6 @@
-
+init_pointer({
+    pointerColor: "#222"
+  })
 var run = 1;
 var idex = 0;
 var Update = false;
@@ -9,6 +11,10 @@ const logo=document.getElementById('TEXT');
 const Home = document.getElementById('HOME');
 const Works = document.getElementById('works');
 const Grid=document.getElementById('Grid');
+
+var images = document.querySelector('#Grid > img');
+
+
 var DLT=0;
 //const BGI = new Image();
 //BGI.onload=Render(BGI);
@@ -16,7 +22,7 @@ var DLT=0;
 
 var BGImages=[];
 PreloadImages();
-var RATE=15;
+var RATE=24;
 canvas.width=1920;
 canvas.height=1080;
 
@@ -185,10 +191,20 @@ function Render()
     }
     requestAnimationFrame(Render); 
 }
+function clamp(number, min, max) {
+    return Math.max(min, Math.min(number, max));
+  }
 function ScrollWorks(e)
 {
     e.preventDefault();
     //Grid.scrollRight += (e.wheelDelta);
     DLT+=e.wheelDelta/3;
+    DLT=clamp(DLT,-Grid.offsetWidth/2,0);
     Grid.style.transform="translateX("+DLT+"px)";
+}
+function a()
+{
+    Grid.forEach(element => {
+        alert("a");
+    });
 }

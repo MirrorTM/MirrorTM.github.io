@@ -5,12 +5,14 @@ var Update = false;
 const canvas = document.getElementById("bg");
 const context=canvas.getContext("2d");
 const body=document.getElementById('body');
-const logo=document.getElementById('logo');
-const BGI = new Image();
+const logo=document.getElementById('TEXT');
+
+//const BGI = new Image();
 //BGI.onload=Render(BGI);
-BGI.src=currentFrame(0);
+//BGI.src=currentFrame(0);
 
-
+var BGImages=[];
+PreloadImages();
 var RATE=15;
 canvas.width=1920;
 canvas.height=1080;
@@ -22,6 +24,7 @@ function Redraw()
     Update=true;
 }
 requestAnimationFrame(Render);
+
 async function LoadGallery()
 {
         var i=1,j=1;
@@ -111,6 +114,15 @@ function Error(file)
    v=0;
 }
 
+function PreloadImages()
+{
+    for(i=0;i<179;i++)
+    {
+        const IM = new Image();
+        IM.src=currentFrame(i);
+        BGImages.push(IM);
+    }
+}
 
 function currentFrame(i)
 {
@@ -131,21 +143,21 @@ function Render()
         Update = false;
         
         
-        context.drawImage(BGI,0,0);
-        BGI.src=currentFrame(idex);
+        context.drawImage(BGImages[idex],0,0);
+        //BGI.src=currentFrame(idex);
         
         idex++;
         
         if(idex==179)
         {
-            logo.style.webkitFilter="";
-            logo.style.mixBlendMode="multiply";
+            logo.style.color="black";
+            //logo.style.mixBlendMode="multiply";
             idex=0;
         }
         else if (idex==136)
         {
-            logo.style.webkitFilter="Invert()";
-            logo.style.mixBlendMode="screen";
+            logo.style.color="white";
+            //logo.style.mixBlendMode="screen";
         }
     }
     requestAnimationFrame(Render); 

@@ -5,13 +5,13 @@ var Update = false;
 const canvas = document.getElementById("bg");
 const context=canvas.getContext("2d");
 const body=document.getElementById('body');
-
+const logo=document.getElementById('logo');
 const BGI = new Image();
 //BGI.onload=Render(BGI);
 BGI.src=currentFrame(0);
 
 
-var RATE=30;
+var RATE=15;
 canvas.width=1920;
 canvas.height=1080;
 
@@ -123,10 +123,12 @@ function currentFrame(i)
 }
 function Render()
 {
+    
     if(Update)
     {
-        Update = false;
         //context.clearRect(0, 0, canvas.width, canvas.height);
+
+        Update = false;
         
         
         context.drawImage(BGI,0,0);
@@ -134,9 +136,16 @@ function Render()
         
         idex++;
         
-        if(idex==180)
+        if(idex==179)
         {
+            logo.style.webkitFilter="";
+            logo.style.mixBlendMode="multiply";
             idex=0;
+        }
+        else if (idex==136)
+        {
+            logo.style.webkitFilter="Invert()";
+            logo.style.mixBlendMode="screen";
         }
     }
     requestAnimationFrame(Render); 

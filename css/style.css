@@ -10,13 +10,14 @@ overflow: hidden;
 margin: 0px;
 }
 canvas {
-    object-fit: cover;
+    object-fit: contain;
     width: 100vw;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
     z-index: -1;
+    backface-visibility: hidden;
     overflow: hidden;
   }
 

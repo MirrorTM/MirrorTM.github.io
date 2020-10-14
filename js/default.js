@@ -127,13 +127,23 @@ function Error(file)
    v=0;
 }
 
-function PreloadImages()
+function F(i)
 {
-    for(i=0;i<179;i++)
-    {
+    return new Promise((resolve, reject) => {
         const IM = new Image();
         IM.src=currentFrame(i);
-        BGImages.push(IM);
+        IM.onload=resolve(IM);
+      });
+}
+function PreloadImages()
+{
+    
+    for(i=0;i<179;i++)
+    {
+        //const IM = new Image();
+        //IM.src=currentFrame(i);
+        F(i).then((IM)=>BGImages.push(IM));
+        //BGImages.push(IM);
     }
 }
 

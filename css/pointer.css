@@ -6,13 +6,14 @@
 #pointer-dot {
     left: 0;
     top: 0;
-    width: 0;
-    height: 0;
-    border: 6.5px solid white;
+    width: auto;
+    height: auto;
+    /* border: 6.5px solid white; */
     position: fixed;
-    border-radius: 4px;
+    /* border-radius: 4px; */
     z-index: 1;
-    visibility: hidden;
+    mix-blend-mode:difference;
+
     pointer-events: none;
     transition: border-color 0.5s;
     
@@ -27,12 +28,12 @@
     background-color: white;
     padding: 1.5321756894790601vh;
     border: 2px solid #750c7e;
-    position: fixed;
+    position: relative;
     border-radius: 100px;
     z-index: 2;
     mix-blend-mode:difference;
     pointer-events: none;
-    
+        
 }
 @keyframes scale {
     0%   {transform:scale(1);}

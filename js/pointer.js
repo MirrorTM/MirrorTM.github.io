@@ -8,7 +8,8 @@ pointer.id = "pointer-dot"
 const ring = document.createElement("div")
 ring.id = "pointer-ring"
 document.body.insertBefore(pointer, document.body.children[0])
-document.body.insertBefore(ring, document.body.children[0])
+pointer.insertBefore(ring, pointer.children[0])
+
 
 let mouseX = -100
 let mouseY = -100
@@ -53,14 +54,13 @@ const init_pointer = (options) => {
     const render = () => {
         ringX = trace(ringX, mouseX, 0.4)
         ringY = trace(ringY, mouseY, 0.4)
-
-        if (document.querySelector("#BAR > div:hover")) {
-            pointer.style.borderColor = getOption("pointerColor")
-            isHover = true
+        HOVERED =document.querySelector('div[alt="HoverMe"]:hover');
+        if (HOVERED) {
+            isHover = true;
             
 
         } else {
-            pointer.style.padding ="36px";
+            //pointer.style.padding ="36px";
             isHover = false
            
 
@@ -73,17 +73,24 @@ const init_pointer = (options) => {
             ring.style.padding = getOption("ringSize") + "px"
         }
         
-        pointer.style.transform = `translate(${mouseX}px, ${mouseY}px)`
-        ring.style.transform = `translate(${ringX - (mouseDown ? getOption("ringClickSize") : getOption("ringSize"))}px, ${ringY - (mouseDown ? getOption("ringClickSize") : getOption("ringSize"))}px)`
+        pointer.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%,-50%)`
+        //ring.style.transform = `translate(${ringX - (mouseDown ? getOption("ringClickSize") : getOption("ringSize"))}px, ${ringY - (mouseDown ? getOption("ringClickSize") : getOption("ringSize"))}px)`
         if(isHover)
         {
-            ring.style.transform+="scale(2)";
-            ring.style.transition="transform 0.15s";
+            ring.style.transform="scale(2)";
+            ring.style.transition="transform 0.3s";
+            const rect = HOVERED.getBoundingClientRect();
+            x=mouseX - rect.left;
+            y=mouseY  - rect.top;
+            HOVERED.onmouseleave=function(){this.style.transform=""};
+            HOVERED.style.transform=`translate(-50%,-50%) translate(${x}px, ${y}px) `;
+
         }
         else
         {
-            ring.style.transform+="";
-            ring.style.transition="";
+            ring.style.transform="";
+            ring.style.transition="0.3s";
+            
 
         }
         requestAnimationFrame(render)

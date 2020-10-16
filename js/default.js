@@ -15,6 +15,7 @@ const Grid=document.getElementById('Grid');
 var images = document.querySelector('#Grid > img');
 
 
+
 var DLT=0;
 //const BGI = new Image();
 //BGI.onload=Render(BGI);
@@ -179,13 +180,13 @@ function Render()
         
         if(idex==179)
         {
-            logo.style.color="black";
+            //logo.style.color="black";
             //logo.style.mixBlendMode="multiply";
             idex=0;
         }
         else if (idex==136)
         {
-            logo.style.color="white";
+            //logo.style.color="white";
             //logo.style.mixBlendMode="screen";
         }
     }

@@ -1,0 +1,61 @@
+@keyframes Skew {
+    0%   {transform: skewX(0deg);}
+    50%  {transform: skewX(var(--anglex));}
+    100%  {transform: skewX(0deg);}
+  }
+  @keyframes move {
+    0%   {object-position: center;}
+    50%  {object-position: right;}
+    100%  {object-position: top;}
+  }
+  .SKEW
+  {
+      animation: Skew 1s 1;
+  }
+  .MOVE
+  {
+      animation: move 5s infinite;
+  }
+.GAL
+{
+    --anglex:0deg;
+
+    width: 50vh;
+    height: 100%;
+    position: relative;
+    flex:1;
+    z-index: 2;
+    animation: move 15s infinite;
+
+    object-fit: cover;
+    backface-visibility: hidden;
+    transition: all 1.5s;
+    transform: scale(1);
+}
+.GAL:hover
+{
+    transform: scale(1.15);
+    transition: all 1.5s;
+    z-index: 3;
+
+}
+#Grid
+{
+    /* display: grid; */
+    min-width: 100%;
+    position: absolute;
+    top:50%;
+    width: auto;
+    height: 50%;
+    display: flex;
+    transition: all 0.5s;
+
+    /* display: grid; */
+    /* grid-template-columns:repeat(3, 30vw);
+    grid-template-rows:  minmax(100%, 1fr); ;
+    scroll-behavior: smooth;
+    grid-auto-flow: column;
+    transition: all 1s;
+    grid-auto-columns: 35vw; */
+}
+

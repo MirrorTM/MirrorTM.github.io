@@ -37,7 +37,7 @@ function HIDEHOME()
     Works.style.animationName="WORK";
     Works.style.animationDuration="3s";
     Works.onwheel=ScrollWorks;
-
+    
 }
 function Redraw()
 {
@@ -200,8 +200,18 @@ function ScrollWorks(e)
     e.preventDefault();
     //Grid.scrollRight += (e.wheelDelta);
     DLT+=e.wheelDelta/3;
-    DLT=clamp(DLT,-Grid.offsetWidth/2,0);
+    DLT=clamp(DLT,-Grid.offsetWidth+Works.offsetWidth,0);
+    ANG=clamp(e.wheelDelta/10,-15,15)
+    console.log(e.deltaFactor);
     Grid.style.transform="translateX("+DLT+"px)";
+    elms = document.querySelectorAll('.GAL');
+    elms.forEach(element => {
+        element.style.setProperty('--anglex',ANG+'deg');
+    element.classList.remove("SKEW");
+    void element.offsetWidth;
+    element.classList.add("SKEW");
+    });
+    
 }
 function a()
 {

@@ -23,6 +23,7 @@ const init_pointer = (options) => {
         mouseX = mouse.clientX
         mouseY = mouse.clientY
         
+        
     }
 
     window.onmousedown = (mouse) => {

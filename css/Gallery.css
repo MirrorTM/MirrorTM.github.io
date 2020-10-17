@@ -19,7 +19,7 @@
 .GAL
 {
     --anglex:0deg;
-
+    
     width: 50vh;
     height: 100%;
     position: relative;
@@ -32,23 +32,67 @@
     transition: all 1.5s;
     transform: scale(1);
 }
-.GAL:hover
+#clipper
 {
-    transform: scale(1.15);
-    transition: all 1.5s;
-    z-index: 3;
+    width: 100vw;
+    height: 80%;
+    position: absolute;
+    display: flex;
+    clip-path: inset(0% 8% 0% 8%);
+    align-items: center;
+    overflow: hidden;
+    height: 80%;
 
 }
+.mouse
+{
+    background-image: url(../res/mouse.png);
+    width: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 100px;
+    position: absolute;
+    top:100%;
+    left:50%;
+    transform:translate(-50% , -100%) rotate(90deg);
+}
+.GAL:hover
+{
+    /* transform: scale(1.15); */
+    /* width:50%; */
+    transform-origin: center;
+    transform: translateX(var(--mousex));  
+    width: var(--actw);
+    animation: none;
+    transition: all 1.5s;
+    z-index: 3;
+    /* object-position: calc(50% + var(--mousex)) var(--mousey);  */
+
+}
+.GALHOVER
+{
+    filter:grayscale(1) contrast(1.2);
+    opacity: 0.5;
+}
+@keyframes Large {
+    0%   {}
+    50%  {}
+    100%  {width: 50%;}
+  }
 #Grid
 {
+    --mousex:0px;
+    --mousey:0px;
+    --actw:0px;
     /* display: grid; */
     min-width: 100%;
-    position: absolute;
-    top:50%;
     width: auto;
-    height: 50%;
+    height: 100%;
     display: flex;
+    position: absolute;
     transition: all 0.5s;
+    
 
     /* display: grid; */
     /* grid-template-columns:repeat(3, 30vw);

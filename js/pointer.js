@@ -10,6 +10,7 @@ ring.id = "pointer-ring"
 document.body.insertBefore(pointer, document.body.children[0])
 pointer.insertBefore(ring, pointer.children[0])
 
+const galery=document.querySelector('#Grid');
 
 let mouseX = -100
 let mouseY = -100
@@ -23,6 +24,7 @@ const init_pointer = (options) => {
         mouseX = mouse.clientX
         mouseY = mouse.clientY
         
+
         
     }
 
@@ -56,6 +58,7 @@ const init_pointer = (options) => {
         ringX = trace(ringX, mouseX, 0.4)
         ringY = trace(ringY, mouseY, 0.4)
         HOVERED =document.querySelector('div[alt="HoverMe"]:hover');
+        HOVEREDIMG=document.querySelector('.GAL:hover');
         if (HOVERED) {
             isHover = true;
             
@@ -66,7 +69,30 @@ const init_pointer = (options) => {
            
 
         }
-      
+        if(HOVEREDIMG)
+        {
+            r= HOVEREDIMG.getBoundingClientRect();
+            H=HOVEREDIMG.naturalHeight;
+            Ratio = HOVEREDIMG.nextElementSibling.height / H ;
+            W=HOVEREDIMG.naturalWidth * Ratio;
+            galery.style.setProperty('--actw',W+'px');
+
+            galery.style.setProperty('--mousex',(mouseX-((r.right + r.left)/2))*2+'px');
+            galery.style.setProperty('--mousey',(mouseY-r.top)/2+'px');
+            document.querySelectorAll('.GAL').forEach(element => {
+                if(element!=HOVEREDIMG)
+                {
+                    element.classList.add('GALHOVER');
+                }
+            });
+            
+        }
+        else
+        {
+            document.querySelectorAll('.GAL').forEach(element => {
+                element.classList.remove('GALHOVER');
+            });
+        }
         ring.style.borderColor = getOption("pointerColor")
         if (mouseDown) {
             ring.style.padding = getOption("ringClickSize") + "px"

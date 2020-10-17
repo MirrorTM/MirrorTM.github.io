@@ -11,6 +11,8 @@ const logo=document.getElementById('TEXT');
 const Home = document.getElementById('HOME');
 const Works = document.getElementById('works');
 const Grid=document.getElementById('Grid');
+const MainBar=document.querySelector('#BAR');
+const WorkBar=document.querySelector('#BAR3');
 
 var images = document.querySelector('#Grid > img');
 
@@ -36,6 +38,9 @@ function HIDEHOME()
     Works.style.animationFillMode="forwards";
     Works.style.animationName="WORK";
     Works.style.animationDuration="3s";
+    MainBar.style.clipPath="inset(0% 0% 100% 0%)";
+    WorkBar.style.clipPath="inset(0% 0% 0% 0%)";
+    WorkBar.style.visibility="visible";
     Works.onwheel=ScrollWorks;
     
 }
@@ -200,17 +205,17 @@ function ScrollWorks(e)
     e.preventDefault();
     //Grid.scrollRight += (e.wheelDelta);
     DLT+=e.wheelDelta/3;
-    DLT=clamp(DLT,-Grid.offsetWidth+Works.offsetWidth,0);
+    DLT=clamp(DLT,-Grid.offsetWidth+(Works.offsetWidth-Works.offsetWidth*0.08),0+Works.offsetWidth*0.08);
     ANG=clamp(e.wheelDelta/10,-15,15)
     console.log(e.deltaFactor);
     Grid.style.transform="translateX("+DLT+"px)";
-    elms = document.querySelectorAll('.GAL');
-    elms.forEach(element => {
+    //elms = document.querySelectorAll('.GAL');
+    //elms.forEach(element => {
         element.style.setProperty('--anglex',ANG+'deg');
-    element.classList.remove("SKEW");
-    void element.offsetWidth;
-    element.classList.add("SKEW");
-    });
+    //element.classList.remove("SKEW");
+    //void element.offsetWidth;
+    //element.classList.add("SKEW");
+    //});
     
 }
 function a()

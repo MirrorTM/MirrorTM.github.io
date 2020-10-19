@@ -130,7 +130,7 @@ const init_pointer = (options) => {
         {
             ring.style.transform="scale(2)";
             //pointer.style.setProperty('--hovering','hov 0.7s 1');
-            ring.style.backgroundColor="orange";
+            ring.style.backgroundColor="red";
             const rect = HOVERED.getBoundingClientRect();
             x=mouseX - rect.left;
             y=mouseY  - rect.top;
@@ -140,6 +140,8 @@ const init_pointer = (options) => {
         }
         else if(isHover2)
         {
+            ring.style.backgroundColor="red";
+
             ring.style.transform="scale(2)";
 
         }

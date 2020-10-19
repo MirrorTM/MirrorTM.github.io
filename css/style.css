@@ -85,6 +85,7 @@ canvas {
     padding-left: 14vw;
     padding-right: 14vw;
     justify-items: center;
+    z-index: -1;
     width: 72vw;
 }
 .BAR > div
@@ -246,7 +247,7 @@ display: block;
 }
 .Contact
 {
-    transform: translateY(calc(-50vh));
+    transform: translateY(calc(-250%));
     font-family: CircleEB;
     mix-blend-mode: normal;
     text-transform: none;
@@ -387,5 +388,5 @@ display: block;
 {
     opacity: 1;
     transform-origin: center;
-    transform: translateX(-100%) translateZ(0) scale(2);
+    
 }

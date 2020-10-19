@@ -19,6 +19,7 @@ function ShowCloud()
     Home.style.animationName="isofly";
     Home.style.animationDuration="3s";
     MainBar.style.clipPath="inset(0% 0% 100% 0%)";
+    ShowClose();
     CLOUD.style.animationFillMode="forwards";
     CLOUD.style.animationName="WORK";
     CLOUD.style.display="block";

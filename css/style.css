@@ -31,8 +31,8 @@ canvas {
     z-index: -1;
     backface-visibility: hidden;
     overflow: hidden;
-    -webkit-transform: scale(1.4);
-    filter:saturate(1.6);
+    -webkit-transform: scale(1.0);
+    filter:saturate(1.6) brightness(0.9);
   }
 .stain
 {
@@ -42,9 +42,9 @@ canvas {
     height: 100%;
     position: absolute;
     object-fit: cover;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(12px);
-    -webkit-transform: scale(1.4);
+    backdrop-filter: blur(11px);
+    -webkit-backdrop-filter: blur(11px);
+    -webkit-transform: scale(1.0);
 
     z-index: -1;
 }
@@ -65,23 +65,27 @@ canvas {
 }
 #BAR3
 {
-    clip-path:inset(0% 0% 100% 0%);
+    -webkit-clip-path:inset(0% 0% 100% 0%);
     transition: clip-path 7s;
     visibility: hidden;
 }
 #BAR
 {
-    clip-path:inset(0% 0% 0% 0%);
+    -webkit-clip-path:inset(0% 0% 0% 0%);
     padding-left: 5vw;
     padding-right: 5vw;
     width: 90vw;
-    transition: clip-path 2s;
+    transition: -webkit-clip-path 2s;
     mix-blend-mode: normal;
 }
 #BAR2
 {
-    top:80%;
-    transform: translateY(-100%);
+    height: 100vh;
+    top:0px;
+    padding-left: 14vw;
+    padding-right: 14vw;
+    justify-items: center;
+    width: 72vw;
 }
 .BAR > div
 {
@@ -193,31 +197,64 @@ display: block;
     font-family: CircleBold;
     transform: scale(1.5);
 }
+#BAR2 > div p
+{
+    margin: 0%;
+}
 #email
 {
     background-color: white;
-    flex:3;
-    text-align: center;
-    font-size: 2vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    position: absolute;
+    font-size: auto;
+    line-height:6vh;
+    top:100%;
+    left: 0px;
+    margin-left: 0.5vw;
+    margin-top: 0.5vh;
     color: black;
     border-radius: 5px;
     font-family: 'CircleReg';
-    height:100%;
-    filter: contrast(0.1);
-    transform:translateY(50%);
+    height:6vh;
+    width: auto;
+    transform: translateY(-100%);
+
 }
 #email:hover
 {
     filter: contrast(1);
 }
+#email > p
+{
+}
 #intro
 {
     background: transparent;
     text-align: center;
+    text-transform: uppercase;
     color: white;
-    flex:2;
-    font-size: 3vh;
+    height: 5vh;
+    top: 50%;
+    mix-blend-mode: difference;
+    left:50%;
+    transform: translate(-50% , -50%);
+    position: absolute;
+    font-size: 2vh;
     font-family: 'CircleBold';
+}
+.Contact
+{
+    transform: translateY(calc(-50vh));
+    font-family: CircleEB;
+    mix-blend-mode: normal;
+    text-transform: none;
+    color: white;
+    font-size: 10vh;
+}
+#intro > p 
+{
+
 }
 .shadow
 {
@@ -322,4 +359,30 @@ display: block;
     font-size: 6vh;
     transition: all 0.5s;
 
+}
+#CloseButton
+{
+    text-align: center;
+    width: 10vh;
+    height: auto;
+    font-size: 2vh;
+    font-family: CircleReg;
+    color: white;
+    -webkit-backface-visibility: hidden;
+-moz-backface-visibility:    hidden;
+-ms-backface-visibility:     hidden;
+    position: absolute;
+    top:0px;
+    opacity: 0.5;
+    left:100%;
+    transform: translateX(-100%) translateZ(0);
+    transition: transform 0.5s;
+    z-index: 5;
+
+}
+#CloseButton:hover
+{
+    opacity: 1;
+    transform-origin: center;
+    transform: translateX(-100%) translateZ(0) scale(2);
 }

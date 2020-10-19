@@ -7,3 +7,6 @@ function ShowClose()
 {
     body.appendChild(X);
 }
+
+
+// Define text style

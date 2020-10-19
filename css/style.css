@@ -1,5 +1,5 @@
 p{
-    cursor:none;
+    cursor:default;
 }
 
 html
@@ -21,10 +21,19 @@ body
     --moy:0px;
     --mox:0px;
 }
+@keyframes table
+{
+    0%{transform: translateX(-100%);}
+    50%{transform: translateX(0%);}
+    100%{transform: translateX(100%);}
+}
 b-canvas
 {
     width: 100vw !important;
     height: 100vh;
+    animation: table 4s infinite;
+    overflow: visible;
+    mix-blend-mode: overlay;
 }
 canvas {
     object-fit: cover;
@@ -32,22 +41,28 @@ canvas {
     height: 100vh;
     position: fixed;
     top: 0;
-    left: 22.656vw;
+    left: -64px;
     z-index: -1;
     backface-visibility: hidden;
     overflow: hidden;
     -webkit-transform: scale(1.4);
-    filter:saturate(2.6) brightness(0.9);
+    /* filter:saturate(2.6) brightness(0.9); */
   }
+  @keyframes hue
+{
+    0%{backdrop-filter:  hue-rotate(0deg) saturate(0.8);}
+    50%{backdrop-filter:  hue-rotate(180deg) saturate(0.8);}
+    100%{backdrop-filter:  hue-rotate(0deg) saturate(0.8);}
+}
 .stain
 {
     top: 0;
-    left: 22.656vw;
+    left: 0;
     width: 100%;
     height: 100%;
     position: absolute;
     object-fit: cover;
-    backdrop-filter: blur(15px);
+    
     -webkit-backdrop-filter: blur(15px);
     -webkit-transform: scale(1.4);
 
@@ -80,8 +95,10 @@ canvas {
     padding-left: 5vw;
     padding-right: 5vw;
     width: 25vw;
+    height: 120px;
+    line-height: calc(120px - 28px);
     transition: -webkit-clip-path 2s;
-    mix-blend-mode: difference;
+    mix-blend-mode: normal;
 }
 #BAR2
 {
@@ -100,12 +117,12 @@ canvas {
    
     color: white;
     flex:1;
-    font-size: 2vh;
+    font-size: 14px;
     font-family: 'CircleReg';
     font-weight: lighter;
     text-transform: uppercase;
     -webkit-transition: all 0.5s;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     backface-visibility: hidden;
     -webkit-font-smoothing:antialiased;
 
@@ -116,8 +133,8 @@ canvas {
 }
 #BAR > div:hover
 {
-    /* -webkit-transform: translateY(5px); */
-    font-size:  3vh;
+     -webkit-transform: translateY(5px); 
+    transform:scale(2);
 }
 #works
 {
@@ -165,14 +182,16 @@ canvas {
 {
     position: absolute;
     left: calc(50%);
-    transform: translateX(-50%);
     width: 100%;
-    top: 50vh;
-    transform: translate(-50%,-50%);
+    top: 0px;
+    height: 120px;
+    transform: translate(-50%,0%);
     background-color: transparent;
     text-align: center;
     font-size: 4.811vh;
+    line-height: calc(120px - 9.62vh);
     color: white;
+    z-index: 5;
     mix-blend-mode: difference;
     font-family: 'CircleBold';
     font-weight: bolder;
@@ -211,24 +230,50 @@ display: block;
 }
 #email
 {
-    background-color: white;
-    font-size: 1.4814814814814814vh;
+    font-size: 6.4814814814814814vh;
     margin-left: 0.625vw;
     margin-right: 0.625vw;
     text-align: center;
     top:100vh;
-    transform: translateY(-110%);
+    transform: translateY(-150%);
     left: 0px;
-    position: relative;
-    color: black;
+    position: absolute;
+    color: white;
     border-radius: 5px;
     font-family: 'CircleReg';
     height:6vh;
-    width: calc(100% - 0.625vw * 2);
+    width: calc(100%);
     line-height: 6vh;
     font-weight: lighter;
     text-transform: uppercase;
     transition: all 1s;
+}
+#mail
+{
+    width: 3vh;
+    height:3vh;
+    border-radius: 50%;
+    background-color: white;
+    top: 120px;
+    position: absolute;
+    left:7vw;
+    transform: translateX(-50%);
+}
+#AB
+{
+    position: absolute;
+    top:50%;
+    left:50%;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 32px;
+    mix-blend-mode: difference;
+    transform: translate(-50% , -50%);
+    text-align: center;
+    font-family: "DR";
+    width: fit-content;
+    font-size: 78px;
+    z-index: 5;
 }
 #email:hover
 {
@@ -241,11 +286,12 @@ display: block;
     text-align: center;
     text-transform: uppercase;
     color: white;
-    height: 5vh;
-    top: 100%;
+    height: 120px;
+    padding-left: 5vw;
+    line-height: calc(120px - 2.96vh);
+    top: 0px;
     mix-blend-mode: difference;
-    left:50%;
-    transform: translate(-50% , -200%);
+    left:0px;
     position: absolute;
     font-size: 1.4814814814814814vh;
     font-family: 'CircleBold';
@@ -397,10 +443,11 @@ display: block;
 }
 #Sidebar
 {
-    background-color: black;
+    background-color: transparent;
     width:calc(22.656vw);
     height: 100vh;
     top: 0px;
-    left: 0%;
+    left: 50%;
+    transform:translateX(-50%);
     position: absolute;
 }

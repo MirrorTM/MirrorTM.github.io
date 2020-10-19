@@ -25,7 +25,7 @@ var DLT=0;
 
 var BGImages=[];
 PreloadImages();
-var RATE=24;
+var RATE=30;
 canvas.width=1920;
 canvas.height=1080;
 
@@ -152,7 +152,7 @@ function F(i)
 function PreloadImages()
 {
     
-    for(i=0;i<179;i++)
+    for(i=0;i<171;i++)
     {
         //const IM = new Image();
         //IM.src=currentFrame(i);
@@ -165,9 +165,9 @@ function currentFrame(i)
 {
     
     var str = "" + i
-    var pad = "0000000"
+    var pad = "00000"
     var ans = pad.substring(0, pad.length - str.length) + str
-    return "./res/bg/jpg/BG."+ans+".jpg";
+    return "./res/bg/jpg/2/Frame_"+ans+".jpg";
     //return `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${i.toString().padStart(4, '0')}.jpg`;
 }
 function Render()
@@ -185,7 +185,7 @@ function Render()
         
         idex++;
         
-        if(idex==179)
+        if(idex==170)
         {
             //logo.style.color="black";
             //logo.style.mixBlendMode="multiply";

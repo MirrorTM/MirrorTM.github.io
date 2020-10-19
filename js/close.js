@@ -9,4 +9,5 @@ function ShowClose()
 }
 
 
-// Define text style
+
+//<p alt="Hover">Mirror™</p>

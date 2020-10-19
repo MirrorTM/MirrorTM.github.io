@@ -10,3 +10,7 @@
     font-family: CircleEB;
     src: url(./Circe-ExtraBold.ttf);
   }
+  @font-face {
+    font-family: DR;
+    src: url(./LR.woff2);
+  }

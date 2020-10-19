@@ -59,8 +59,8 @@ const init_pointer = (options) => {
     }
 
     const render = () => {
-        ringX = trace(ringX, mouseX, 0.4)
-        ringY = trace(ringY, mouseY, 0.4)
+        ringX = trace(ringX, mouseX, 0.19)
+        ringY = trace(ringY, mouseY, 0.19)
         HOVERED =document.querySelector('div[alt="HoverMe"]:hover');
         JustHover = document.querySelector('p[alt="Hover"]:hover');
         HOVEREDIMG=document.querySelector('.GAL:hover');
@@ -119,16 +119,19 @@ const init_pointer = (options) => {
         // }
         //ring.style.borderColor = getOption("pointerColor")
         if (mouseDown) {
+            ring.classList.add("Clicked");
             //ring.style.padding = getOption("ringClickSize") + "px"
         } else {
+            ring.classList.remove("Clicked");
+
             //ring.style.padding = getOption("ringSize") + "px"
         }
         
-        pointer.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%,-50%)`
+        pointer.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%,-50%)`
         //ring.style.transform = `translate(${ringX - (mouseDown ? getOption("ringClickSize") : getOption("ringSize"))}px, ${ringY - (mouseDown ? getOption("ringClickSize") : getOption("ringSize"))}px)`
         if(isHover)
         {
-            ring.style.transform="scale(2)";
+            ring.style.transform="scale(0.7)";
             //pointer.style.setProperty('--hovering','hov 0.7s 1');
             ring.style.backgroundColor="white";
             const rect = HOVERED.getBoundingClientRect();

@@ -12,12 +12,11 @@
     overflow: visible;
     /* border: 6.5px solid white; */
     position: fixed;
-    /* border-radius: 4px; */
+    border-radius: 50%;
     z-index: 12;
     mix-blend-mode:difference;
     backface-visibility: hidden;
     pointer-events: none;
-    transition: border-color 0.5s;
     
 
 }
@@ -30,6 +29,11 @@
 {
     background-color: saddlebrown;
 }
+.Clicked
+{
+    padding:0;
+    transition: padding 0.5s;
+}
 #pointer-ring {
     left: 0;
     backface-visibility: hidden;
@@ -38,14 +42,18 @@
     width: 0;
     overflow: visible;
     height: 0;
-    background-color: white;
-    padding: 1.7321756894790601vh;
+    background-color: rgb(49, 49, 49);
+    padding: 2.7321756894790601vh;
     position: relative;
-    border-radius: 1200px;
+    border-radius: 50%;
     z-index: 2;
     mix-blend-mode:difference;
     pointer-events: none;
     transition: all 0.5s;
+    border-color: lightgray;
+    border-width: 2px;
+    border-style: solid;
+    
         
 }
 @keyframes scale {
@@ -55,9 +63,9 @@
   }
 
 html {
-    cursor: none !important;
+    cursor: default !important;
 }
 
 a {
-    cursor: none !important;
+    cursor: default !important;
 }

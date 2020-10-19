@@ -4,35 +4,48 @@
 */
 
 #pointer-dot {
+    --hovering:"";
     left: 0;
     top: 0;
     width: auto;
     height: auto;
+    overflow: visible;
     /* border: 6.5px solid white; */
     position: fixed;
     /* border-radius: 4px; */
     z-index: 12;
     mix-blend-mode:difference;
-
+    backface-visibility: hidden;
     pointer-events: none;
     transition: border-color 0.5s;
     
 
 }
-
+@keyframes hov {
+    0%   {transform:scale(0.9); transition: transform 0.2s;}
+    50%  {transform:scale(2.2); transition: transform 0.2s;}
+    100%  {transform:scale(2); transition: transform 0.2s;}
+}
+.HoverAnim
+{
+    background-color: saddlebrown;
+}
 #pointer-ring {
     left: 0;
+    backface-visibility: hidden;
+
     top: 0;
     width: 0;
+    overflow: visible;
     height: 0;
     background-color: white;
-    padding: 1.5321756894790601vh;
-    border: 2px solid #750c7e;
+    padding: 1.7321756894790601vh;
     position: relative;
-    border-radius: 100px;
+    border-radius: 1200px;
     z-index: 2;
     mix-blend-mode:difference;
     pointer-events: none;
+    transition: all 0.5s;
         
 }
 @keyframes scale {

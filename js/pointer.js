@@ -17,13 +17,17 @@ let mouseY = -100
 let ringX = -100
 let ringY = -100
 let isHover = false
+let isHover2 = false
+
 let mouseDown = false
 const init_pointer = (options) => {
 
     window.onmousemove = (mouse) => {
         mouseX = mouse.clientX
         mouseY = mouse.clientY
-        
+        body.style.setProperty('--mox',mouseX+'px');
+        body.style.setProperty('--moy',mouseY+'px');
+
 
         
     }
@@ -44,7 +48,7 @@ const init_pointer = (options) => {
     const getOption = (option) => {
         let defaultObj = {
             pointerColor: "#750c7e",
-            ringSize: 15,
+            ringSize: 20,
             ringClickSize: (options["ringSize"] || 15) - 5,
         }
         if (options[option] == undefined) {
@@ -58,46 +62,66 @@ const init_pointer = (options) => {
         ringX = trace(ringX, mouseX, 0.4)
         ringY = trace(ringY, mouseY, 0.4)
         HOVERED =document.querySelector('div[alt="HoverMe"]:hover');
+        JustHover = document.querySelector('p[alt="Hover"]:hover');
         HOVEREDIMG=document.querySelector('.GAL:hover');
         if (HOVERED) {
             isHover = true;
             
 
-        } else {
+        } 
+        else 
+        {
             //pointer.style.padding ="36px";
             isHover = false
            
+
+        }
+        if(JustHover)
+        {
+            isHover2 = true;
+        }
+        else
+        {
+            isHover2 = false
 
         }
         if(HOVEREDIMG)
         {
             r= HOVEREDIMG.getBoundingClientRect();
             H=HOVEREDIMG.naturalHeight;
-            Ratio = HOVEREDIMG.nextElementSibling.height / H ;
+            Ratio = HOVEREDIMG.height / H ;
             W=HOVEREDIMG.naturalWidth * Ratio;
+
+            body.style.setProperty('--mousex',(mouseX-((r.right + r.left)/2))*119+'px');
             galery.style.setProperty('--actw',W+'px');
 
-            galery.style.setProperty('--mousex',(mouseX-((r.right + r.left)/2))*2+'px');
-            galery.style.setProperty('--mousey',(mouseY-r.top)/2+'px');
-            document.querySelectorAll('.GAL').forEach(element => {
-                if(element!=HOVEREDIMG)
-                {
-                    element.classList.add('GALHOVER');
-                }
-            });
+            body.style.setProperty('--mousey',(mouseY-r.top)/2+'px');
+            galery.style.setProperty('--FLT','grayscale(1)');
+            HOVEREDIMG.style.filter="";
+            // document.querySelectorAll('.GAL').forEach(element => {
+            //     if(element!=HOVEREDIMG)
+            //     {
+            //         element.classList.add('GALHOVER');
+            //     }
+            // });
             
         }
         else
         {
-            document.querySelectorAll('.GAL').forEach(element => {
-                element.classList.remove('GALHOVER');
-            });
+            galery.style.setProperty('--FLT','grayscale(0)');
+
         }
-        ring.style.borderColor = getOption("pointerColor")
+        // else
+        // {
+        //     document.querySelectorAll('.GAL').forEach(element => {
+        //         element.classList.remove('GALHOVER');
+        //     });
+        // }
+        //ring.style.borderColor = getOption("pointerColor")
         if (mouseDown) {
-            ring.style.padding = getOption("ringClickSize") + "px"
+            //ring.style.padding = getOption("ringClickSize") + "px"
         } else {
-            ring.style.padding = getOption("ringSize") + "px"
+            //ring.style.padding = getOption("ringSize") + "px"
         }
         
         pointer.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%,-50%)`
@@ -105,7 +129,8 @@ const init_pointer = (options) => {
         if(isHover)
         {
             ring.style.transform="scale(2)";
-            ring.style.transition="transform 0.3s";
+            //pointer.style.setProperty('--hovering','hov 0.7s 1');
+            ring.style.backgroundColor="orange";
             const rect = HOVERED.getBoundingClientRect();
             x=mouseX - rect.left;
             y=mouseY  - rect.top;
@@ -113,11 +138,16 @@ const init_pointer = (options) => {
             HOVERED.style.transform=`translate(-50%,-50%) translate(${x}px, ${y}px) `;
 
         }
+        else if(isHover2)
+        {
+            ring.style.transform="scale(2)";
+
+        }
         else
         {
             ring.style.transform="";
-            ring.style.transition="0.3s";
-            
+            ring.style.backgroundColor="";
+
 
         }
         requestAnimationFrame(render)

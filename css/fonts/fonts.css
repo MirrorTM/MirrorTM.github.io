@@ -1,0 +1,12 @@
+@font-face {
+    font-family: CircleBold;
+    src: url(./Circe-Bold.ttf);
+  }
+  @font-face {
+    font-family: CircleReg;
+    src: url(./Circe-Regular.ttf);
+  }
+  @font-face {
+    font-family: CircleEB;
+    src: url(./Circe-ExtraBold.ttf);
+  }

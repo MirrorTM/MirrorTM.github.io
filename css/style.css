@@ -16,11 +16,15 @@ body
     height: 100%;
     overflow: hidden;
     margin: 0px;
+    --mousex:0px;
+    --mousey:0px;
+    --moy:0px;
+    --mox:0px;
 }
 canvas {
     object-fit: cover;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
@@ -28,6 +32,7 @@ canvas {
     backface-visibility: hidden;
     overflow: hidden;
     -webkit-transform: scale(1.4);
+    filter:saturate(1.6);
   }
 .stain
 {
@@ -37,8 +42,10 @@ canvas {
     height: 100%;
     position: absolute;
     object-fit: cover;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(12px);
+    -webkit-transform: scale(1.4);
+
     z-index: -1;
 }
 ::selection{
@@ -65,8 +72,11 @@ canvas {
 #BAR
 {
     clip-path:inset(0% 0% 0% 0%);
-
+    padding-left: 5vw;
+    padding-right: 5vw;
+    width: 90vw;
     transition: clip-path 2s;
+    mix-blend-mode: normal;
 }
 #BAR2
 {
@@ -80,40 +90,44 @@ canvas {
    
     color: white;
     flex:1;
-    font-size: 3vh;
-    font-family: 'Bahnschrift';
+    font-size: 2vh;
+    font-family: 'CircleReg';
     font-weight: lighter;
+    text-transform: uppercase;
     -webkit-transition: all 0.5s;
-    
+    letter-spacing: 1px;
     backface-visibility: hidden;
+    -webkit-font-smoothing:antialiased;
 
 }
 .BAR > span
 {
-    flex:1;
+    flex:3;
 }
 #BAR > div:hover
 {
     /* -webkit-transform: translateY(5px); */
+    font-size:  3vh;
 }
 #works
 {
     position: absolute;
     background-color: white;
     width:100%;
-    height: 0px;
+    display: none;
+    height: 100%;
     top:0%;
     z-index: 1;
-    display: flex;
     align-items: center;
     left: 0px;
     
 }
 
 @keyframes WORK {
-    0%   {height: 0px;clip-path: circle(0% at 0% 0%);}
-    50%  {height: 0px;clip-path: circle(15% at 0% 0%);}
-    100%  {height: calc(100% ) ;clip-path: circle(150% at 0% 0%);}
+    0%   {-webkit-clip-path: circle(0% at var(--mox) var(--moy));}
+    25%  {-webkit-clip-path: circle(2% at var(--mox) var(--moy));}
+    80%  {-webkit-clip-path: circle(5% at var(--mox) var(--moy));}
+    100%  {-webkit-clip-path: circle(300% at var(--mox) var(--moy));}
   }
 #HOME
 {
@@ -130,22 +144,25 @@ canvas {
 } */
 @keyframes isofly {
     0%   {}
-    50%  {transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg) scale(0.5);}
-    100%  {transform:  translateY(200%) ;}
+    50%  {transform: rotateX(70deg) rotateY(0deg) rotateZ(-45deg) scale(0.5);}
+    100%  {transform:  translateY(800%) rotateX(70deg) rotateY(0deg) rotateZ(-45deg) scale(0.5)  ;}
   }
+#TEXT:hover #pointer-ring
+{
+    transform: scale(2);
+}
 #TEXT
 {
     position: absolute;
     left: calc(50vw);
-    top: 50vh;
+    top: 25vh;
     transform: translate(-50%,-50%);
     background-color: transparent;
-    -webkit-transition: color 2s;
     text-align: center;
     font-size: 13.074565883554646vh;
     color: white;
     mix-blend-mode: difference;
-    font-family: 'Bahnschrift';
+    font-family: 'CircleEB';
     font-weight: bolder;
 }
 .bar2
@@ -171,18 +188,20 @@ display: block;
 }
 #bigtext
 {
-    text-decoration: line-through;
+    letter-spacing: 5px;
     font-size: 3vh;
+    font-family: CircleBold;
+    transform: scale(1.5);
 }
 #email
 {
     background-color: white;
-    flex:2;
+    flex:3;
     text-align: center;
     font-size: 2vh;
     color: black;
     border-radius: 5px;
-    font-family: 'Bahnschrift';
+    font-family: 'CircleReg';
     height:100%;
     filter: contrast(0.1);
     transform:translateY(50%);
@@ -198,7 +217,7 @@ display: block;
     color: white;
     flex:2;
     font-size: 3vh;
-    font-family: 'Bahnschrift';
+    font-family: 'CircleBold';
 }
 .shadow
 {
@@ -269,4 +288,38 @@ display: block;
 .arrow > a
 {
     top:50%;
+}
+#TagCloud
+{
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+    left:0px;
+    background-color: rgb(20, 20, 20);
+    display: none;
+}
+#TagCloud .tagcloud
+{
+    backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s;
+}
+#TagCloud .tagcloud--item
+{
+    color: white;
+    font-family: CircleBold;
+    font-size: 5vh;
+    transition: all 0.5s;
+
+}
+#TagCloud .tagcloud--item:hover
+{
+    color: white;
+    font-family: CircleBold;
+    font-size: 6vh;
+    transition: all 0.5s;
+
 }

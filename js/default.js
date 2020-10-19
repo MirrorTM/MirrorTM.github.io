@@ -37,7 +37,9 @@ function HIDEHOME()
     Home.style.animationDuration="3s";
     Works.style.animationFillMode="forwards";
     Works.style.animationName="WORK";
-    Works.style.animationDuration="3s";
+    Works.style.display="Flex";
+    Works.style.animationDuration="2s";
+    Works.style.animationIterationCount=1;
     MainBar.style.clipPath="inset(0% 0% 100% 0%)";
     WorkBar.style.clipPath="inset(0% 0% 0% 0%)";
     WorkBar.style.visibility="visible";
@@ -203,15 +205,23 @@ function clamp(number, min, max) {
 function ScrollWorks(e)
 {
     e.preventDefault();
-    //Grid.scrollRight += (e.wheelDelta);
-    DLT+=e.wheelDelta/3;
+    if(e.wheelDelta<0)
+    {
+        DELTA=-120;
+    }
+    else
+    {
+        DELTA=120;
+    }
+    DLT+=DELTA/2.2;
+    console.log(DELTA);
     DLT=clamp(DLT,-Grid.offsetWidth+(Works.offsetWidth-Works.offsetWidth*0.08),0+Works.offsetWidth*0.08);
     ANG=clamp(e.wheelDelta/10,-15,15)
     console.log(e.deltaFactor);
     Grid.style.transform="translateX("+DLT+"px)";
     //elms = document.querySelectorAll('.GAL');
     //elms.forEach(element => {
-        element.style.setProperty('--anglex',ANG+'deg');
+    //Grid.style.setProperty('--anglex',ANG+'deg');
     //element.classList.remove("SKEW");
     //void element.offsetWidth;
     //element.classList.add("SKEW");

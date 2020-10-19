@@ -120,7 +120,7 @@
       self.texts = texts || [];
       self.config = _objectSpread2({}, TagCloud._defaultConfig, {}, options || {}); // calculate config
 
-      self.radius = body.clientWidth/2;//self.config.radius; // rolling radius
+      self.radius = body.clientWidth/5;//self.config.radius; // rolling radius
 
       self.depth = 1 * self.radius; // rolling depth
 
@@ -162,8 +162,8 @@
         var $el = document.createElement('div');
         $el.className = 'tagcloud';
         $el.style.position = 'relative';
-        $el.style.width = "".concat(1 * body.width, "px");
-        $el.style.height = "".concat(1 * body.height, "px"); // create texts
+        $el.style.width = "".concat(1 * body.width/2, "px");
+        $el.style.height = "".concat(1 * body.height/2, "px"); // create texts
 
         self.items = [];
         self.texts.forEach(function (text, index) {
@@ -200,7 +200,7 @@
         itemEl.style.MozTransform = transform;
         itemEl.style.OTransform = transform;
         itemEl.style.transform = transform;
-        var transition = 'all .2s';
+        var transition = 'all .32s';
         itemEl.style.WebkitTransition = transition;
         itemEl.style.MozTransition = transition;
         itemEl.style.OTransition = transition;

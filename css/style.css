@@ -217,13 +217,14 @@ display: block;
     border-radius: 5px;
     font-family: 'CircleReg';
     height:6vh;
+
     width: auto;
     transform: translateY(-100%);
 
 }
 #email:hover
 {
-    filter: contrast(1);
+    filter: invert(0);
 }
 #email > p
 {
@@ -348,7 +349,7 @@ display: block;
 {
     color: white;
     font-family: CircleBold;
-    font-size: 5vh;
+    font-size: 2vh;
     transition: all 0.5s;
 
 }
@@ -357,6 +358,8 @@ display: block;
     color: white;
     font-family: CircleBold;
     font-size: 6vh;
+    opacity: 1;
+    
     transition: all 0.5s;
 
 }

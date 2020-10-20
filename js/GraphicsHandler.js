@@ -14,7 +14,7 @@ function PreloadBg()
         var str = "" + i
         var pad = "00000"
         var ans = pad.substring(0, pad.length - str.length) + str
-        path="/res/bg/jpg/New Folder/Frame_"+ans+".jpg";
+        path="/res/bg/jpg/ATT/Frame_"+ans+".jpg";
         app.loader.add(`BG${ans}`,path);
     }
 }
@@ -35,7 +35,7 @@ function RenderBg()
         var str = "" + i
         var pad = "00000"
         var ans = pad.substring(0, pad.length - str.length) + str
-        path="./res/bg/jpg/New Folder/Frame_"+ans+".jpg";
+        path="./res/bg/jpg/ATT/Frame_"+ans+".jpg";
         name =`BG${ans}`;
         BG.push(app.loader.resources[name].texture);
     }

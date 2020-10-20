@@ -41,11 +41,10 @@ canvas {
     height: 100vh;
     position: fixed;
     top: 0;
-    left: -64px;
+    left: 0px;
     z-index: -1;
     backface-visibility: hidden;
     overflow: hidden;
-    -webkit-transform: scale(1.4);
     /* filter:saturate(2.6) brightness(0.9); */
   }
   @keyframes hue
@@ -63,8 +62,7 @@ canvas {
     position: absolute;
     object-fit: cover;
     
-    -webkit-backdrop-filter: blur(15px);
-    -webkit-transform: scale(1.4);
+   animation: hue 12s infinite;
 
     z-index: -1;
 }

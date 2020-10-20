@@ -5,7 +5,7 @@ var run = 1;
 var idex = 0;
 var Update = false;
 const canvas = document.getElementById("bg");
-const context=canvas.getContext("2d");
+const context=null;//canvas.getContext("2d");
 const body=document.getElementById('body');
 const logo=document.getElementById('TEXT');
 const Home = document.getElementById('HOME');
@@ -24,12 +24,13 @@ var DLT=0;
 //BGI.src=currentFrame(0);
 
 var BGImages=[];
-PreloadImages();
+//PreloadImages();
 var RATE=30;
 canvas.width=1920;
 canvas.height=1080;
 
-setInterval(Redraw,1000/RATE);
+//setInterval(Redraw,1000/RATE);
+
 function HIDEHOME()
 {
     Home.style.animationFillMode="forwards";
@@ -152,7 +153,7 @@ function F(i)
 function PreloadImages()
 {
     
-    for(i=0;i<171;i++)
+    for(i=0;i<257;i++)
     {
         //const IM = new Image();
         //IM.src=currentFrame(i);
@@ -167,7 +168,7 @@ function currentFrame(i)
     var str = "" + i
     var pad = "00000"
     var ans = pad.substring(0, pad.length - str.length) + str
-    return "./res/bg/jpg/2/Frame_"+ans+".jpg";
+    return "./res/bg/jpg/New Folder/Frame_"+ans+".jpg";
     //return `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${i.toString().padStart(4, '0')}.jpg`;
 }
 function Render()
@@ -185,7 +186,7 @@ function Render()
         
         idex++;
         
-        if(idex==170)
+        if(idex==256)
         {
             //logo.style.color="black";
             //logo.style.mixBlendMode="multiply";

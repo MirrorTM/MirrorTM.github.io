@@ -7,20 +7,16 @@ stage=null;
 path="";
 ATT=null;
 
-queue = new createjs.LoadQueue(true);
+queue = new createjs.LoadQueue(false);
+
+PreloadBg();
 
 queue.on("complete", Loaded, this);
 queue.on("fileload", FileComplete, this);
 
-PreloadBg();
 
 
 
- function handleComplete() {
-     createjs.Sound.play("sound");
-     var image = queue.getResult("myImage");
-     document.body.appendChild(image);
- }
 
 
 IDX=0;
@@ -28,7 +24,7 @@ IDX=0;
 
  function FileComplete(e)
  {
-    BG.push(e.item.src);
+    BG.push(e.result.src);
  }
 
 function PreloadBg()
@@ -38,9 +34,9 @@ function PreloadBg()
         var str = "" + i
         var pad = "00000"
         var ans = pad.substring(0, pad.length - str.length) + str
-        path="./res/bg/jpg/ATT/Frame_"+ans+".jpg";
+        path="/res/bg/jpg/ATT/Frame_"+ans+".jpg";
         //app.loader.add(`BG${ans}`,path);
-        queue.loadFile({id: `BG${ans}`, src:path});
+        queue.loadManifest([{id: `BG${ans}`, src:path}]);
     }
 }
 
@@ -64,11 +60,18 @@ function RenderBg()
 }
 function Render()
 {
+   
+
     if(stage!=null)
     {
         IDX++;
-        IM.src=BG[IDX];
-        ATT.image =IM;
+
+        var str = "" + IDX
+        var pad = "00000"
+        var ans = pad.substring(0, pad.length - str.length) + str
+        p="/res/bg/jpg/ATT/Frame_"+ans+".jpg";
+
+        ATT.image =queue.getResult(p, true);
         stage.clear;
         stage.update();
         if(IDX==256)

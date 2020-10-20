@@ -36,7 +36,7 @@ function PreloadBg()
         var ans = pad.substring(0, pad.length - str.length) + str
         path="/res/bg/jpg/ATT/Frame_"+ans+".jpg";
         //app.loader.add(`BG${ans}`,path);
-        queue.loadManifest([{id: `BG${ans}`, src:path}]);
+        queue.loadFile({id: `BG${ans}`, src:path});
     }
 }
 

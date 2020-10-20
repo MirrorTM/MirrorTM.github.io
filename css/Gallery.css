@@ -4,9 +4,9 @@
     100%  {transform: skewX(0deg);}
   }
   @keyframes move {
-    0%   {object-position: center;}
-    50%  {object-position: right;}
-    100%  {object-position: top;}
+    0%   {transform: translate(0% , -100%);}
+    50%  {transform: translate(100% , -0%);}
+    100%  {transform: translate(0% , -100%);}
   }
   .SKEW
   {

@@ -49,9 +49,9 @@ canvas {
   }
   @keyframes hue
 {
-    0%{backdrop-filter:  hue-rotate(0deg) saturate(0.8);}
-    50%{backdrop-filter:  hue-rotate(180deg) saturate(0.8);}
-    100%{backdrop-filter:  hue-rotate(0deg) saturate(0.8);}
+    0%{backdrop-filter:  hue-rotate(0deg) saturate(0.8); -webkit-backdrop-filter:  hue-rotate(0deg) saturate(0.8);}
+    50%{backdrop-filter:  hue-rotate(180deg) saturate(0.8); -webkit-backdrop-filter:  hue-rotate(180deg) saturate(0.8);}
+    100%{backdrop-filter:  hue-rotate(0deg) saturate(0.8); -webkit-backdrop-filter:  hue-rotate(0deg) saturate(0.8);}
 }
 .stain
 {
@@ -149,10 +149,10 @@ canvas {
 }
 
 @keyframes WORK {
-    0%   {-webkit-clip-path: circle(0% at var(--mox) var(--moy));}
-    25%  {-webkit-clip-path: circle(2% at var(--mox) var(--moy));}
-    80%  {-webkit-clip-path: circle(5% at var(--mox) var(--moy));}
-    100%  {-webkit-clip-path: circle(300% at var(--mox) var(--moy));}
+    0%   {filter:  invert(1) brightness(0.4); mix-blend-mode: difference; -webkit-clip-path: circle(0% at var(--mox) var(--moy)) ;}
+    25%  {filter:  invert(1)brightness(0.4);mix-blend-mode: difference;-webkit-clip-path: circle(2% at var(--mox) var(--moy));}
+    80%  {filter:  invert(1)brightness(0.8);mix-blend-mode: difference;-webkit-clip-path: circle(5% at var(--mox) var(--moy));}
+    100%  {filter:  invert(0)brightness(1);mix-blend-mode: normal;-webkit-clip-path: circle(300% at var(--mox) var(--moy));}
   }
 #HOME
 {

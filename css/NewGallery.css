@@ -1,0 +1,47 @@
+::-webkit-scrollbar {
+    display: none;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+#GalleryV2
+{
+    width: 100%;
+    height: calc(100% );
+    position: absolute;
+    top:0px;
+    left:0px;
+    background-color: black;
+    display: none;
+    z-index: 2;
+    flex-direction:column;
+    perspective: 150vw;
+    overflow-y: scroll;
+    perspective-origin: right;
+}
+
+#GalleryV2 > img
+{
+    width: 50%;
+    height: 50%;
+    position: relative;
+    overflow: visible;
+    flex:2;
+    z-index: 2;
+    animation: move 2s infinite;
+
+    filter: var(--FLT);
+    transform: rotate3d(0.2,1,-0.2,90deg);
+    object-fit: cover;
+    backface-visibility: hidden;
+    transition: transform 0.8s;
+}
+#GalleryV2 > img:hover
+{
+    transform-origin: center;
+    height: 90%;
+    transition: transform 0.8s;
+    width: var(--actw);
+    filter: none;
+    z-index: 3;
+}

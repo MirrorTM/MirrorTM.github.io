@@ -63,7 +63,7 @@ const init_pointer = (options) => {
         ringY = trace(ringY, mouseY, 0.19)
         HOVERED =document.querySelector('div[alt="HoverMe"]:hover');
         JustHover = document.querySelector('p[alt="Hover"]:hover');
-        HOVEREDIMG=document.querySelector('.GAL:hover');
+        HOVEREDIMG=document.querySelector('img:hover');
         if (HOVERED) {
             isHover = true;
             
@@ -93,10 +93,9 @@ const init_pointer = (options) => {
             W=HOVEREDIMG.naturalWidth * Ratio;
 
             body.style.setProperty('--mousex',(mouseX-((r.right + r.left)/2))*119+'px');
-            galery.style.setProperty('--actw',W+'px');
-
-            body.style.setProperty('--mousey',(mouseY-r.top)/2+'px');
-            galery.style.setProperty('--FLT','grayscale(1)');
+            HOVEREDIMG.style.setProperty('--actw',W+'px');
+            body.style.setProperty('--mousey',(mouseY-((r.bottom + r.top)/2))*119+'px');
+            body.style.setProperty('--FLT','grayscale(1)');
             HOVEREDIMG.style.filter="";
             // document.querySelectorAll('.GAL').forEach(element => {
             //     if(element!=HOVEREDIMG)
@@ -108,7 +107,7 @@ const init_pointer = (options) => {
         }
         else
         {
-            galery.style.setProperty('--FLT','grayscale(0)');
+            body.style.setProperty('--FLT','grayscale(0)');
 
         }
         // else

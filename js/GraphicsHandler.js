@@ -1,25 +1,35 @@
 const BG=[];
 const IM = new Image();
+createjs.Ticker.framerate=40;
 IM.src="";
 
 stage=null;
 path="";
 ATT=null;
-const app = new PIXI.Application({width:1920,height:1080});
-//app.view.id="bg";
-//document.querySelector('#HOME').appendChild(app.view);
-app.stop();
-app.loader.onComplete.add(Loaded);
-app.loader.onProgress.add(Progress);
-//anim = "";
+
+queue = new createjs.LoadQueue(false);
+
+queue.on("complete", Loaded, this);
+queue.on("fileload", FileComplete, this);
 
 PreloadBg();
-app.loader.load();
+
+
+
+ function handleComplete() {
+     createjs.Sound.play("sound");
+     var image = queue.getResult("myImage");
+     document.body.appendChild(image);
+ }
+
+
 IDX=0;
-var RATE=50;
 
 
- 
+ function FileComplete(e)
+ {
+    BG.push(e.item.src);
+ }
 
 function PreloadBg()
 {
@@ -28,20 +38,18 @@ function PreloadBg()
         var str = "" + i
         var pad = "00000"
         var ans = pad.substring(0, pad.length - str.length) + str
-        path="/res/bg/jpg/ATT/Frame_"+ans+".jpg";
-        BG.push(path);
-        app.loader.add(`BG${ans}`,path);
+        path="./res/bg/jpg/ATT/Frame_"+ans+".jpg";
+        //app.loader.add(`BG${ans}`,path);
+        queue.loadFile({id: `BG${ans}`, src:path});
     }
 }
 
 function Loaded(e)
 {
     console.log("loaded");
-    app.start();
     RenderBg();
-    setInterval(Render,1000/RATE);
-    //createjs.Ticker.on("tick", Render);
-    }
+    createjs.Ticker.on("tick", Render);
+}
 function Progress(e)
 {
     console.log(e.progress);
@@ -49,12 +57,8 @@ function Progress(e)
 function RenderBg()
 {
     stage = new createjs.Stage("bg");
-
-
     ATT = new createjs.Bitmap(IM);
     stage.addChild(ATT);
-    stage.update();
-
  
     
 }
@@ -65,7 +69,7 @@ function Render()
         IDX++;
         IM.src=BG[IDX];
         ATT.image =IM;
-
+        stage.clear;
         stage.update();
         if(IDX==256)
         {

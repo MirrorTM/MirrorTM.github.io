@@ -6,26 +6,20 @@ IM.src="";
 stage=null;
 path="";
 ATT=null;
-
-queue = new createjs.LoadQueue(false);
+const app = new PIXI.Application({width:1920,height:1080});
+//app.view.id="bg";
+//document.querySelector('#HOME').appendChild(app.view);
+app.stop();
+app.loader.onComplete.add(Loaded);
+app.loader.onProgress.add(Progress);
+//anim = "";
 
 PreloadBg();
-
-queue.on("complete", Loaded, this);
-queue.on("fileload", FileComplete, this);
-
-
-
-
-
-
+app.loader.load();
 IDX=0;
 
 
- function FileComplete(e)
- {
-    BG.push(e.result.src);
- }
+ 
 
 function PreloadBg()
 {
@@ -35,14 +29,15 @@ function PreloadBg()
         var pad = "00000"
         var ans = pad.substring(0, pad.length - str.length) + str
         path="/res/bg/jpg/ATT/Frame_"+ans+".jpg";
-        //app.loader.add(`BG${ans}`,path);
-        queue.loadFile({id: `BG${ans}`, src:path});
+        BG.push(path);
+        app.loader.add(`BG${ans}`,path);
     }
 }
 
 function Loaded(e)
 {
     console.log("loaded");
+    app.start();
     RenderBg();
     createjs.Ticker.on("tick", Render);
 }
@@ -60,18 +55,11 @@ function RenderBg()
 }
 function Render()
 {
-   
-
     if(stage!=null)
     {
         IDX++;
-
-        var str = "" + IDX
-        var pad = "00000"
-        var ans = pad.substring(0, pad.length - str.length) + str
-        p="/res/bg/jpg/ATT/Frame_"+ans+".jpg";
-
-        ATT.image =queue.getResult(p, true);
+        IM.src=BG[IDX];
+        ATT.image =IM;
         stage.clear;
         stage.update();
         if(IDX==256)

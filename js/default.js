@@ -5,7 +5,7 @@ var run = 1;
 var idex = 0;
 var Update = false;
 const canvas = document.getElementById("bg");
-const context=null;//canvas.getContext("2d");
+const context=canvas.getContext("2d");
 const body=document.getElementById('body');
 const logo=document.getElementById('TEXT');
 const Home = document.getElementById('HOME');
@@ -23,9 +23,8 @@ var DLT=0;
 //BGI.onload=Render(BGI);
 //BGI.src=currentFrame(0);
 
-var BGImages=[];
+//var BGImages=[];
 //PreloadImages();
-var RATE=30;
 canvas.width=1920;
 canvas.height=1080;
 
@@ -171,35 +170,35 @@ function currentFrame(i)
     return "./res/bg/jpg/New Folder/Frame_"+ans+".jpg";
     //return `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${i.toString().padStart(4, '0')}.jpg`;
 }
-function Render()
-{
+// function Render()
+// {
     
-    if(Update)
-    {
-        //context.clearRect(0, 0, canvas.width, canvas.height);
+//     if(Update)
+//     {
+//         //context.clearRect(0, 0, canvas.width, canvas.height);
 
-        Update = false;
+//         Update = false;
         
         
-        context.drawImage(BGImages[idex],0,0);
-        //BGI.src=currentFrame(idex);
+//         context.drawImage(BGImages[idex],0,0);
+//         //BGI.src=currentFrame(idex);
         
-        idex++;
+//         idex++;
         
-        if(idex==256)
-        {
-            //logo.style.color="black";
-            //logo.style.mixBlendMode="multiply";
-            idex=0;
-        }
-        else if (idex==136)
-        {
-            //logo.style.color="white";
-            //logo.style.mixBlendMode="screen";
-        }
-    }
-    requestAnimationFrame(Render); 
-}
+//         if(idex==256)
+//         {
+//             //logo.style.color="black";
+//             //logo.style.mixBlendMode="multiply";
+//             idex=0;
+//         }
+//         else if (idex==136)
+//         {
+//             //logo.style.color="white";
+//             //logo.style.mixBlendMode="screen";
+//         }
+//     }
+//     requestAnimationFrame(Render); 
+// }
 function clamp(number, min, max) {
     return Math.max(min, Math.min(number, max));
   }

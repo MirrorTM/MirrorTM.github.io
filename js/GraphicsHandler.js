@@ -7,7 +7,7 @@ stage=null;
 path="";
 ATT=null;
 
-queue = new createjs.LoadQueue(false);
+queue = new createjs.LoadQueue(true);
 
 queue.on("complete", Loaded, this);
 queue.on("fileload", FileComplete, this);

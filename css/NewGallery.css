@@ -19,28 +19,52 @@
     overflow-y: scroll;
     perspective-origin: right;
 }
-
+@keyframes A1
+{
+    0%{object-position: 5% 100%;}
+    50%{object-position: 100% 0%;}
+    100%{object-position: 5% 100%;}
+}
+#HDR
+{
+    width: 25vw;
+    height: 100vh;
+    top: 0px;
+    right: 0px;
+    text-align: center;
+    line-height: 100vh;
+    color: white;
+    font-family: DR;
+    padding-right: 5vw;
+    font-size: 5vh;
+    position: absolute;
+    word-wrap: break-word;
+    transition: all 1s;
+    transform: translateY(var(--scrollY));
+}
 #GalleryV2 > img
 {
-    width: 50%;
-    height: 50%;
+    width: 60vw;
+    height: 80vh;
     position: relative;
     overflow: visible;
     flex:2;
     z-index: 2;
-    animation: move 2s infinite;
-
+    animation: A1 12s infinite;
+    opacity: 0.2;
     filter: var(--FLT);
-    transform: rotate3d(0.2,1,-0.2,90deg);
+    transform: rotate3d(0.2,0.5,-0.2,90deg);
     object-fit: cover;
     backface-visibility: hidden;
-    transition: transform 0.8s;
+    transition: all 0.8s;
 }
 #GalleryV2 > img:hover
 {
     transform-origin: center;
+    transform: translateX(calc(50vw - 50%)) translateY(calc(50vh - 50%)) ;
+    opacity: 1;
     height: 90%;
-    transition: transform 0.8s;
+    transition: all 0.8s;
     width: var(--actw);
     filter: none;
     z-index: 3;

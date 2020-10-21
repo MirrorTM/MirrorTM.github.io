@@ -27,14 +27,7 @@ body
     50%{transform: translateX(0%);}
     100%{transform: translateX(100%);}
 }
-b-canvas
-{
-    width: 100vw !important;
-    height: 100vh;
-    animation: table 4s infinite;
-    overflow: visible;
-    mix-blend-mode: overlay;
-}
+
 canvas {
     object-fit: cover;
     width: 100vw;
@@ -44,6 +37,7 @@ canvas {
     left: 0px;
     z-index: -1;
     backface-visibility: hidden;
+    transform:translateZ(0px) scale(0.95);
     overflow: hidden;
     /* filter:saturate(2.6) brightness(0.9); */
   }

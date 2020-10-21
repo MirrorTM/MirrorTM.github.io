@@ -25,8 +25,7 @@ var DLT=0;
 
 //var BGImages=[];
 //PreloadImages();
-canvas.width=1920;
-canvas.height=1080;
+
 
 //setInterval(Redraw,1000/RATE);
 

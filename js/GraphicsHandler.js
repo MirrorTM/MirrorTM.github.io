@@ -29,7 +29,7 @@ var QUE = new createjs.LoadQueue(false);
 QUE.on("complete", Loaded, this);
 QUE.on("progress", Progress, this);
 QUE.on("fileload", Handle, this);
-
+QUE.on("error", Err, this);
 
 
 
@@ -37,9 +37,21 @@ PreloadBg();
 QUE.load();
 IDX=0;
 
+function Err()
+{
+    QUE.setPaused(true);
+    QUE.dispatchEvent("complete");
+}
 async function Handle(e)
 {
-    BG.push(e.result);
+    if(e.item.src.includes('Frame'))
+    {
+        BG.push(e.result);
+    }
+    else
+    {
+        Container.appendChild(e.result);
+    }
 }
 
 function PreloadBg()
@@ -50,6 +62,11 @@ function PreloadBg()
         var pad = "00000"
         var ans = pad.substring(0, pad.length - str.length) + str
         path="/res/bg/jpg/ATT/lighter/Frame_"+ans+".png";
+        QUE.loadFile(path,false,false);
+    }
+    for(i=1;i<=82;i++)
+    {
+        path=`/prij/1/${i}.jpg`;
         QUE.loadFile(path,false,false);
     }
 }

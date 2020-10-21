@@ -2,13 +2,13 @@ var Container = document.createElement("div");
 Container.id="GalleryV2";
 Container.setAttribute("data-50","opacity:0.5");
 Container.style.clipPath="circle(0% at var(--mousex) var(--mousey))";
-images = document.querySelectorAll("img");
+
+
+
 header = document.createElement('div');
 header.innerHTML ="Scroll Down⤓";
 header.id="HDR";
-images.forEach(element => {
-    Container.appendChild(element);
-}); 
+
 
 Container.appendChild(header);
 
@@ -25,30 +25,32 @@ function Display()
     Container.style.animationDuration="2s";
     Container.style.animationIterationCount=1;
     Container.style.display="flex";
+    Container.children[1].style.opacity=1;
 }
-Container.children[0].style.opacity=1;
 Container.onscroll=scroll;
 
-previd =0;
+
+
+previd =1;
 
 function scroll(e)
 {
     max = e.target.scrollHeight - e.target.offsetHeight;
     current = e.target.scrollTop;
     children  = Container.children;
-
-    percent = clamp((current * 100)/ (max + children[0].height/1.1),0,100);
-    ind = percent * children.length;
-    console.log(parseInt(ind/100));
-    if(parseInt(ind/100)!=previd)
+    INDE = current.map(0,max,1,children.length);
+    //percent = current/max;
+   // ind = percent * (children.length*1000);
+    console.log(INDE);
+    if(parseInt(INDE)!=previd)
     {
-        children[parseInt(ind/100)].style.opacity=1;
+        children[parseInt(INDE)].style.opacity=1;
         children[previd].style.opacity=0.2;
 
-        previd = parseInt(ind/100);
+        previd = parseInt(INDE);
     }
     N=current*100/max;
-    body.style.setProperty('--scrollY',`${current}px`)
+    body.style.setProperty('--scrollY',`${current-700}px`)
     if(current==max)
     {
         header.innerHTML="End⤒";
@@ -60,3 +62,7 @@ function scroll(e)
     }
     
 }
+
+Number.prototype.map = function (in_min, in_max, out_min, out_max) {
+    return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+  }

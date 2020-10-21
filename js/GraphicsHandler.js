@@ -3,7 +3,18 @@ const IM = new Image();
 const CAN = document.getElementById("bg");
 const CON=CAN.getContext("2d",{ alpha: false });
 
-CAN.width=1920;
+const LOCK = document.createElement("div");
+LOCK.id="blocker";
+
+const PROGR = document.createElement("span");
+PROGR.id="progress";
+LOCK.appendChild(PROGR);
+
+body.appendChild(LOCK);
+
+UPDATE = false;
+
+CAN.width=974;
 CAN.height=1080;
 
 createjs.Ticker.framerate=60;
@@ -28,57 +39,54 @@ IDX=0;
 
 async function Handle(e)
 {
-    console.log(e);
     BG.push(e.result);
 }
 
 function PreloadBg()
 {
-    for(i=0;i<=256;i++)
+    for(i=1;i<=256;i++)
     {
         var str = "" + i
         var pad = "00000"
         var ans = pad.substring(0, pad.length - str.length) + str
-        path="/res/bg/jpg/ATT/Frame_"+ans+".jpg";
-        QUE.loadFile(path,false);
+        path="/res/bg/jpg/ATT/lighter/Frame_"+ans+".png";
+        QUE.loadFile(path,false,false);
     }
 }
 
 function Loaded(e)
 {
     console.log("loaded");
-    RenderBg();
-    createjs.Ticker.on("tick", Render);
-    //requestAnimationFrame(Render);
+    LOCK.remove();
+    //RenderBg();
+    //createjs.Ticker.on("tick", Render);
+    setInterval(function(){UPDATE=true;},1000/30)
+    requestAnimationFrame(Render);
 }
 
 function Progress(e)
 {
-    console.log(e.progress);
-}
-function RenderBg()
-{
-    //stage = new createjs.Stage("bg");
-    //ATT = new createjs.Bitmap(IM);
-    //stage.addChild(ATT);
-    CON.clearRect(0, 0, 1920, 1080);
-    CON.drawImage(BG[IDX], 0, 0);
+    //console.log(e.progress);
+    PROGR.innerHTML=`Loading -> ${parseInt(e.progress*100)}%`;
 }
 
 function Render()
 {
     if(CON!=null)
     {
-        IDX++;
-        //IM.src=BG[IDX];
-        CON.drawImage(BG[IDX], 0, 0,1920,1080);
-        if(IDX==256)
+        if(UPDATE)
         {
-            CON.clearRect(0, 0, 1920, 1080);
-        
-            IDX=0;
+            IDX++;
+            //IM.src=BG[IDX];
+            UPDATE=false;
+            CON.drawImage(BG[IDX], 0, 0,974,1080);
+            if(IDX==255)
+            {            
+                IDX=0;
+            }
+            
         }
-        //requestAnimationFrame(Render);
     }
+    requestAnimationFrame(Render);
 }
 

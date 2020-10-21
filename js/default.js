@@ -49,7 +49,6 @@ function Redraw()
 {
     Update=true;
 }
-requestAnimationFrame(Render);
 
 async function LoadGallery()
 {

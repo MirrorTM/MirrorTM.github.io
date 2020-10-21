@@ -12,11 +12,11 @@
     overflow: visible;
     /* border: 6.5px solid white; */
     position: fixed;
-    z-index: 12;
+    z-index: 1000;
     mix-blend-mode:difference;
     backface-visibility: hidden;
     pointer-events: none;
-    
+    transform: translate(-50%,-50%) translate(var(--mox) , var(--moy)) ;
 
 }
 @keyframes hov {

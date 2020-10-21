@@ -25,8 +25,7 @@ const init_pointer = (options) => {
     window.onmousemove = (mouse) => {
         mouseX = mouse.clientX
         mouseY = mouse.clientY
-        body.style.setProperty('--mox',mouseX+'px');
-        body.style.setProperty('--moy',mouseY+'px');
+        
 
 
         
@@ -61,6 +60,10 @@ const init_pointer = (options) => {
     const render = () => {
         ringX = trace(ringX, mouseX, 0.19)
         ringY = trace(ringY, mouseY, 0.19)
+
+        body.style.setProperty('--mox',ringX+'px');
+        body.style.setProperty('--moy',ringY+'px');
+        
         HOVERED =document.querySelector('div[alt="HoverMe"]:hover');
         JustHover = document.querySelector('p[alt="Hover"]:hover');
         HOVEREDIMG=document.querySelector('img:hover');
@@ -126,7 +129,7 @@ const init_pointer = (options) => {
             //ring.style.padding = getOption("ringSize") + "px"
         }
         
-        pointer.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%,-50%)`
+        //pointer.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%,-50%)`
         //ring.style.transform = `translate(${ringX - (mouseDown ? getOption("ringClickSize") : getOption("ringSize"))}px, ${ringY - (mouseDown ? getOption("ringClickSize") : getOption("ringSize"))}px)`
         if(isHover)
         {

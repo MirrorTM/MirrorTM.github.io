@@ -36,7 +36,7 @@ previd =1;
 function scroll(e)
 {
     max = e.target.scrollHeight - e.target.offsetHeight;
-    current = e.target.scrollTop;
+    current = e.target.scrollTop + 700;
     children  = Container.children;
     INDE = current.map(0,max,1,children.length);
     //percent = current/max;

@@ -23,10 +23,10 @@ QUE.on("fileload", Handle, this);
 
 
 PreloadBg();
-
+QUE.load();
 IDX=0;
 
-function Handle(e)
+async function Handle(e)
 {
     console.log(e);
     BG.push(e.result);
@@ -40,7 +40,7 @@ function PreloadBg()
         var pad = "00000"
         var ans = pad.substring(0, pad.length - str.length) + str
         path="/res/bg/jpg/ATT/Frame_"+ans+".jpg";
-        QUE.loadFile(path);
+        QUE.loadFile(path,false);
     }
 }
 

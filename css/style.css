@@ -8,6 +8,7 @@ html
 }
 body
 {
+    --imagelastscale:0.6;
     position: absolute;
     left: 0%;
     right: 0%;
@@ -31,7 +32,7 @@ body
 canvas {
     object-fit: cover;
     width: 974px;
-    height: 1080px;
+    height: 100vh;
     position: fixed;
     top: 0px;
     left: 50%;

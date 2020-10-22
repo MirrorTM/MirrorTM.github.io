@@ -15,7 +15,7 @@
     display: none;
     z-index: 2;
     flex-direction:column;
-    perspective: 150vw;
+    perspective: calc(100vw * 1.5);
     overflow-y: scroll;
     perspective-origin: right;
 }
@@ -26,6 +26,27 @@
     100%{object-position: 5% 100%;} */
     0%{transform: rotate3d(0.2,0.5,-0.2,90deg) scale(0.6);}
     50%{transform: rotate3d(0.2,0.5,-0.2,90deg) scale(0.9);}
+    100%{transform: rotate3d(0.2,0.5,-0.2,90deg) scale(0.6);}
+
+}
+@keyframes A2
+{
+    /* 0%{object-rot: 5% 100%;}
+    50%{object-position: 100% 0%;}
+    100%{object-position: 5% 100%;} */
+    0%{transform: rotate3d(0.2,0.5,-0.2,90deg) scale(var(--imagelastscale));}
+    50%{transform: rotate3d(0.2,0.5,-0.2,0deg)  translateX(calc(50vw - 50%))  scale(0.5);}
+    100%{transform:  translateX(calc(50vw - 50%)) scale(0.9);}
+
+}
+@keyframes A3
+{
+    /* 0%{object-rot: 5% 100%;}
+    50%{object-position: 100% 0%;}
+    100%{object-position: 5% 100%;} */
+    0%{transform:  translateX(calc(50vw - 50%)) scale(0.9);}
+
+    50%{transform: rotate3d(0.2,0.5,-0.2,0deg)  translateX(calc(50vw - 50%))  scale(0.5);}
     100%{transform: rotate3d(0.2,0.5,-0.2,90deg) scale(0.6);}
 
 }
@@ -57,19 +78,21 @@
     animation: A1 12s infinite;
     opacity: 0.2;
     filter: var(--FLT);
-    transform: rotate3d(0.2,0.5,-0.2,90deg) !important;
+    transform: rotate3d(0.2,0.5,-0.2,90deg);
     object-fit: cover;
     backface-visibility: hidden;
     transition: all 0.8s;
 }
 #GalleryV2 > img:hover
 {
-    animation-fill-mode: forwards;
+    opacity: 1;
+
+    /* animation-fill-mode: forwards;
     animation-iteration-count: 1;
     transform-origin: center;
     transform:translateX(calc(50vw - 50%)) translateY(calc(50vh - 50%)) !important;
-    opacity: 1;
-    height: 90%;
+    height: 90%; */
+    animation-fill-mode: forwards;
     transition: all 0.8s;
     width: var(--actw);
     

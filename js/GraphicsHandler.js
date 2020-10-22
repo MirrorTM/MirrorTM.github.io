@@ -31,7 +31,7 @@ QUE.on("progress", Progress, this);
 QUE.on("fileload", Handle, this);
 QUE.on("error", Err, this);
 
-
+Animating = true;
 
 PreloadBg();
 QUE.load();
@@ -42,6 +42,34 @@ function Err()
     QUE.setPaused(true);
     QUE.dispatchEvent("complete");
 }
+function EnlargeImage(e)
+{
+    if(this.style.animation=="A1")
+    {
+        currentscale = this.getBoundingClientRect().width / this.offsetWidth;
+        body.style.setProperty('--imagelastscale' , currentscale);
+        this.style.animation= "A2 2.0s 1";
+        this.style.animationFillMode="forwards";
+    }
+}
+function RevertImage(e)
+{
+    if(!Animating)
+    {
+        this.style.animation= "A3 2.0s 1";
+        this.style.animationFillMode="forwards";
+        this.style.animationPlayState="running";
+    }
+
+}
+function AnimEnd(e)
+{
+    if(e.animationName == 'A3')
+    {
+        this.style.animation= "A1 12s infinite";
+    }
+    Animating = false;
+}
 async function Handle(e)
 {
     if(e.item.src.includes('Frame'))
@@ -50,6 +78,9 @@ async function Handle(e)
     }
     else
     {
+        e.result.onmouseenter = EnlargeImage;
+        e.result.onmouseleave = RevertImage;
+        e.result.onanimationend  = AnimEnd;
         Container.appendChild(e.result);
     }
 }

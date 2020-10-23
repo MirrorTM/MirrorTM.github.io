@@ -27,6 +27,7 @@ const init_pointer = (options) => {
         mouseX = mouse.clientX
         mouseY = mouse.clientY
         
+        requestAnimationFrame(render)
 
 
         
@@ -158,7 +159,6 @@ const init_pointer = (options) => {
 
 
         }
-        requestAnimationFrame(render)
+        //requestAnimationFrame(render)
     }
-    requestAnimationFrame(render)
 }

@@ -21,8 +21,8 @@ if(Downscale>1)
     Downscale=1;
 }
 body.style.setProperty('--downscale',Downscale);
-CAN.width=974*Downscale;
-CAN.height=1080*Downscale;
+CAN.width=974;
+CAN.height=1080;
 
 createjs.Ticker.framerate=60;
 IM.src="";
@@ -121,12 +121,6 @@ function PreloadGallery()
 function Loaded(e)
 {
     console.log("loaded");
-    for(i=0;i<255;i++)
-    {
-        a= Object.values(QUE.resources)[i];
-        a.data.width *= Downscale;
-        a.data.height*=Downscale;
-    }
     //RenderBg();
     //createjs.Ticker.on("tick", Render);
     setInterval(function(){UPDATE=true;},1000/30)
@@ -150,7 +144,7 @@ function Render()
             IDX++;
             //IM.src=BG[IDX];
             UPDATE=false;
-            CON.drawImage(Object.values(QUE.resources)[IDX].data,0,0,974*Downscale,1080*Downscale);
+            CON.drawImage(Object.values(QUE.resources)[IDX].data,0,0);
             if(IDX==255)
             {            
                 IDX=0;

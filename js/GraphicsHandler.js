@@ -19,8 +19,9 @@ if(Downscale>1)
 {
     Downscale=1;
 }
-CAN.width=974*Downscale;
-CAN.height=1080*Downscale;
+body.style.setProperty('--downscale',Downscale);
+CAN.width=974;
+CAN.height=1080;
 
 createjs.Ticker.framerate=60;
 IM.src="";
@@ -141,7 +142,7 @@ function Render()
             IDX++;
             //IM.src=BG[IDX];
             UPDATE=false;
-            CON.drawImage(Object.values(QUE.resources)[IDX].data, 0, 0,974*Downscale,1080*Downscale);
+            CON.drawImage(Object.values(QUE.resources)[IDX].data, 0, 0,974,1080);
             if(IDX==255)
             {            
                 IDX=0;

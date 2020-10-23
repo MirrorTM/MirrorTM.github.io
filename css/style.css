@@ -38,7 +38,7 @@ canvas {
     left: 50%;
     z-index: -1;
     backface-visibility: hidden;
-    transform:translateZ(0px) translateX(-50%);
+    transform:translateZ(0px) translateX(-50%) scale(var(--downscale));
     overflow: hidden;
     /* filter:saturate(2.6) brightness(0.9); */
   }

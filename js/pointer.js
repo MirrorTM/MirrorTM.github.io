@@ -18,7 +18,7 @@ let ringX = -100
 let ringY = -100
 let isHover = false
 let isHover2 = false
-
+let timer;
 let mouseDown = false
 const init_pointer = (options) => {
 
@@ -27,7 +27,9 @@ const init_pointer = (options) => {
         mouseX = mouse.clientX
         mouseY = mouse.clientY
         
+    
         requestAnimationFrame(render)
+        
 
 
         

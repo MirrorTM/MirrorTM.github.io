@@ -28,7 +28,7 @@ const init_pointer = (options) => {
         mouseY = mouse.clientY
         
     
-        requestAnimationFrame(render)
+        //requestAnimationFrame(render)
         
 
 
@@ -163,4 +163,6 @@ const init_pointer = (options) => {
         }
         //requestAnimationFrame(render)
     }
+    createjs.Ticker.framerate=50;
+    createjs.Ticker.on("tick", function(){requestAnimationFrame(render)});
 }

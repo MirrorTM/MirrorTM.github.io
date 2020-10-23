@@ -2,7 +2,7 @@ const BG=[];
 const IM = new Image();
 const CAN = document.getElementById("bg");
 const CON=CAN.getContext("2d",{ alpha: false });
-
+animationname = "A1";
 const LOCK = document.createElement("div");
 LOCK.id="blocker";
 
@@ -25,7 +25,7 @@ path="";
 ATT=null;
 
 var QUE = new createjs.LoadQueue(false);
-
+QUE.setMaxConnections(50);
 QUE.on("complete", Loaded, this);
 QUE.on("progress", Progress, this);
 QUE.on("fileload", Handle, this);
@@ -44,7 +44,7 @@ function Err()
 }
 function EnlargeImage(e)
 {
-    if(this.style.animation=="A1")
+    if(animationname=="A1")
     {
         currentscale = this.getBoundingClientRect().width / this.offsetWidth;
         body.style.setProperty('--imagelastscale' , currentscale);
@@ -61,6 +61,10 @@ function RevertImage(e)
         this.style.animationPlayState="running";
     }
 
+}
+function AnimStart(e)
+{
+    animationname = e.animationName;
 }
 function AnimEnd(e)
 {
@@ -81,6 +85,7 @@ async function Handle(e)
         e.result.onmouseenter = EnlargeImage;
         e.result.onmouseleave = RevertImage;
         e.result.onanimationend  = AnimEnd;
+        e.result.onanimationstart = AnimStart;
         Container.appendChild(e.result);
     }
 }

@@ -44,9 +44,9 @@ canvas {
   }
   @keyframes hue
 {
-    0%{backdrop-filter:  hue-rotate(0deg) saturate(0.8); -webkit-backdrop-filter:  hue-rotate(0deg) saturate(0.8);}
+    0%{backdrop-filter:  hue-rotate(40deg) saturate(0.8); -webkit-backdrop-filter:  hue-rotate(40deg) saturate(0.8);}
     50%{backdrop-filter:  hue-rotate(180deg) saturate(0.8); -webkit-backdrop-filter:  hue-rotate(180deg) saturate(0.8);}
-    100%{backdrop-filter:  hue-rotate(0deg) saturate(0.8); -webkit-backdrop-filter:  hue-rotate(0deg) saturate(0.8);}
+    100%{backdrop-filter:  hue-rotate(40deg) saturate(0.8); -webkit-backdrop-filter:  hue-rotate(40deg) saturate(0.8);}
 }
 .stain
 {

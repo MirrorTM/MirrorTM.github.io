@@ -29,7 +29,11 @@ QUE.setMaxConnections(100);
 QUE.on("complete", Loaded, this);
 QUE.on("progress", Progress, this);
 QUE.on("fileload", Handle, this);
-QUE.on("error", Err, this);
+
+var QUE2 = new createjs.LoadQueue(false);
+QUE2.setMaxConnections(2);
+QUE2.on("fileload", HandleGallery, this);
+QUE2.on("error", Err, this);
 
 Animating = true;
 
@@ -39,11 +43,8 @@ IDX=0;
 
 function Err(e)
 {
-    if(!e.data.id.includes("Frame"))
-    {
-    QUE.setPaused(true);
-    QUE.dispatchEvent("complete");
-    }
+    QUE2.setPaused(true);
+    QUE2.dispatchEvent("complete");
 }
 function EnlargeImage(e)
 {
@@ -83,14 +84,14 @@ async function Handle(e)
     {
         BG.push(e.result);
     }
-    else
-    {
+}
+async function HandleGallery(e)
+{
         e.result.onmouseenter = EnlargeImage;
         e.result.onmouseleave = RevertImage;
         e.result.onanimationend  = AnimEnd;
         e.result.onanimationstart = AnimStart;
-        Container.appendChild(e.result);
-    }
+        Container.appendChild(e.result); 
 }
 
 function PreloadBg()
@@ -103,11 +104,13 @@ function PreloadBg()
         path="/res/bg/jpg/ATT/lighter/Frame_"+ans+".png";
         QUE.loadFile(path);
     }
-    QUE.setMaxConnections(1);
+}
+function PreloadGallery()
+{
     for(i=1;i<=82;i++)
     {
         path=`/prij/1/${i}.jpg`;
-        QUE.loadFile(path);
+        QUE2.loadFile(path);
     }
 }
 

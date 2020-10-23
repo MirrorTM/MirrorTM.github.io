@@ -25,7 +25,7 @@ path="";
 ATT=null;
 
 var QUE = new createjs.LoadQueue(false);
-QUE.setMaxConnections(10);
+QUE.setMaxConnections(100);
 QUE.on("complete", Loaded, this);
 QUE.on("progress", Progress, this);
 QUE.on("fileload", Handle, this);

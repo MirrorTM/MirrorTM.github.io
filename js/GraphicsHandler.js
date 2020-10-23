@@ -1,4 +1,3 @@
-body.onload = BodyLoad;
 
 const BG=[];
 const IM = new Image();

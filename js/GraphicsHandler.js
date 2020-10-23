@@ -34,7 +34,7 @@ QUE.on("error", Err, this);
 Animating = true;
 
 PreloadBg();
-QUE.load();
+//QUE.load();
 IDX=0;
 
 function Err(e)
@@ -101,13 +101,13 @@ function PreloadBg()
         var pad = "00000"
         var ans = pad.substring(0, pad.length - str.length) + str
         path="/res/bg/jpg/ATT/lighter/Frame_"+ans+".png";
-        QUE.loadFile(path,false,false);
+        QUE.loadFile(path);
     }
     QUE.setMaxConnections(1);
     for(i=1;i<=82;i++)
     {
         path=`/prij/1/${i}.jpg`;
-        QUE.loadFile(path,false,false);
+        QUE.loadFile(path);
     }
 }
 

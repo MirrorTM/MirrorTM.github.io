@@ -12,8 +12,8 @@ pointer.insertBefore(ring, pointer.children[0])
 
 const galery=document.querySelector('#Grid');
 
-let mouseX = -100
-let mouseY = -100
+let mouseX = body.offsetWidth/2;
+let mouseY = body.offsetHeight/2;
 let ringX = -100
 let ringY = -100
 let isHover = false
@@ -22,6 +22,7 @@ let isHover2 = false
 let mouseDown = false
 const init_pointer = (options) => {
 
+ 
     window.onmousemove = (mouse) => {
         mouseX = mouse.clientX
         mouseY = mouse.clientY

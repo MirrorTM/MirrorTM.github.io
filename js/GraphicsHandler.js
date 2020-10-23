@@ -1,3 +1,5 @@
+body.onload = BodyLoad;
+
 const BG=[];
 const IM = new Image();
 const CAN = document.getElementById("bg");
@@ -142,7 +144,7 @@ function Render()
             IDX++;
             //IM.src=BG[IDX];
             UPDATE=false;
-            CON.drawImage(Object.values(QUE.resources)[IDX].data, 0, 0,974,1080);
+            CON.drawImage(Object.values(QUE.resources)[IDX].data,0,0);
             if(IDX==255)
             {            
                 IDX=0;
@@ -153,3 +155,7 @@ function Render()
     requestAnimationFrame(Render);
 }
 
+function BodyLoad()
+{
+        window.dispatchEvent(new Event('mousemove'));
+}

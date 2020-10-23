@@ -17,10 +17,10 @@ body
     height: 100%;
     overflow: hidden;
     margin: 0px;
-    --mousex:0px;
-    --mousey:0px;
-    --moy:0px;
-    --mox:0px;
+    --mousex:50vw;
+    --mousey:50vh;
+    --moy:50vh;
+    --mox:50vw;
 }
 @keyframes table
 {
@@ -38,7 +38,7 @@ canvas {
     left: 50%;
     z-index: -1;
     backface-visibility: hidden;
-    transform:translateZ(0px) translateX(-50%) scale(var(--downscale));
+    transform:translateZ(0px) translateX(-50%);
     overflow: hidden;
     /* filter:saturate(2.6) brightness(0.9); */
   }

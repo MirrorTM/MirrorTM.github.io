@@ -14,8 +14,13 @@ body.appendChild(LOCK);
 
 UPDATE = false;
 
-CAN.width=974;
-CAN.height=1080;
+Downscale = window.screen.height/1080;
+if(Downscale>1)
+{
+    Downscale=1;
+}
+CAN.width=974*Downscale;
+CAN.height=1080*Downscale;
 
 createjs.Ticker.framerate=60;
 IM.src="";
@@ -24,21 +29,19 @@ stage=null;
 path="";
 ATT=null;
 
-var QUE = new createjs.LoadQueue(false);
-QUE.setMaxConnections(100);
-QUE.on("complete", Loaded, this);
-QUE.on("progress", Progress, this);
-QUE.on("fileload", Handle, this);
+var QUE = new Loader();
+QUE.onComplete.add(Loaded);
+QUE.onProgress.add(Progress);
+QUE.onLoad.add(Handle);
 
-var QUE2 = new createjs.LoadQueue(false);
-QUE2.setMaxConnections(2);
-QUE2.on("fileload", HandleGallery, this);
-QUE2.on("error", Err, this);
+// var QUE2 = new createjs.LoadQueue(false);
+// QUE2.setMaxConnections(2);
+// QUE2.on("fileload", HandleGallery, this);
+// QUE2.on("error", Err, this);
 
 Animating = true;
 
 PreloadBg();
-//QUE.load();
 IDX=0;
 
 function Err(e)
@@ -78,14 +81,11 @@ function AnimEnd(e)
     }
     Animating = false;
 }
-async function Handle(e)
+function Handle(e)
 {
-    if(e.item.src.includes('Frame'))
-    {
-        BG.push(e.result);
-    }
+    BG.push(e.result);
 }
-async function HandleGallery(e)
+function HandleGallery(e)
 {
         e.result.onmouseenter = EnlargeImage;
         e.result.onmouseleave = RevertImage;
@@ -102,8 +102,10 @@ function PreloadBg()
         var pad = "00000"
         var ans = pad.substring(0, pad.length - str.length) + str
         path="/res/bg/jpg/ATT/lighter/Frame_"+ans+".png";
-        QUE.loadFile(path);
+        QUE.add(path,i);
     }
+    QUE.load();
+
 }
 function PreloadGallery()
 {
@@ -127,7 +129,7 @@ function Loaded(e)
 function Progress(e)
 {
     //console.log(e.progress);
-    PROGR.innerHTML=`Loading -> ${parseInt(e.progress*100)}%`;
+    PROGR.innerHTML=`Loading -> ${parseInt(e.progress)}%`;
 }
 
 function Render()
@@ -139,7 +141,7 @@ function Render()
             IDX++;
             //IM.src=BG[IDX];
             UPDATE=false;
-            CON.drawImage(BG[IDX], 0, 0,974,1080);
+            CON.drawImage(Object.values(QUE.resources)[IDX].data, 0, 0,974*Downscale,1080*Downscale);
             if(IDX==255)
             {            
                 IDX=0;

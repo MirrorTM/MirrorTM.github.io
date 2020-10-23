@@ -35,23 +35,26 @@ previd =1;
 
 function scroll(e)
 {
-    max = e.target.scrollHeight - e.target.offsetHeight;
-    current = e.target.scrollTop + 700;
+   
     children  = Container.children;
-    INDE = current.map(0,max,1,children.length);
+    max = e.target.scrollHeight;
+    sect=max/children.length;
+    current = e.target.scrollTop;
+
+    k=trueFloor(current/sect)+1;
+    console.log(k);
     //percent = current/max;
    // ind = percent * (children.length*1000);
-    console.log(INDE);
-    if(parseInt(INDE)!=previd)
+   if(k!=previd)
     {
-        children[parseInt(INDE)].style.opacity=1;
-        children[previd].style.opacity=0.2;
+    children[k].style.opacity=1;
+    children[previd].style.opacity=0.2;
 
-        previd = parseInt(INDE);
+    previd = k;
     }
     N=current*100/max;
-    body.style.setProperty('--scrollY',`${current-700}px`)
-    if(current==max)
+    body.style.setProperty('--scrollY',`${current}px`)
+    if(current==max-e.target.offsetHeight)
     {
         header.innerHTML="End⤒";
     }
@@ -66,3 +69,11 @@ function scroll(e)
 Number.prototype.map = function (in_min, in_max, out_min, out_max) {
     return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
   }
+function trueFloor(x)
+{
+    x = x * 100;
+    if(x > .0000000000000006)
+        x = x - .0000000000000006;
+    x = Math.floor(x/100);
+    return x;
+}

@@ -24,7 +24,6 @@ body.style.setProperty('--downscale',Downscale);
 CAN.width=974;
 CAN.height=1080;
 
-createjs.Ticker.framerate=60;
 IM.src="";
 
 stage=null;
@@ -36,6 +35,11 @@ QUE.onComplete.add(Loaded);
 QUE.onProgress.add(Progress);
 QUE.onLoad.add(Handle);
 
+var QUE2 = new Loader();
+//QUE2.onComplete.add(Loaded);
+//QUE2.onProgress.add(Progress);
+QUE2.onLoad.add(HandleGallery);
+QUE2.onError.add(Err);
 // var QUE2 = new createjs.LoadQueue(false);
 // QUE2.setMaxConnections(2);
 // QUE2.on("fileload", HandleGallery, this);
@@ -44,12 +48,16 @@ QUE.onLoad.add(Handle);
 Animating = true;
 
 PreloadBg();
+PreloadGallery();
 IDX=0;
 
-function Err(e)
+function Err(e,l,r)
 {
-    QUE2.setPaused(true);
-    QUE2.dispatchEvent("complete");
+    l._queue.worker = null;
+    l._queue.resources = null;
+    r.abort();
+    l._queue.pause();
+    l.reset();
 }
 function EnlargeImage(e)
 {
@@ -87,13 +95,13 @@ function Handle(e)
 {
     BG.push(e.result);
 }
-function HandleGallery(e)
+function HandleGallery(l,r)
 {
-        e.result.onmouseenter = EnlargeImage;
-        e.result.onmouseleave = RevertImage;
-        e.result.onanimationend  = AnimEnd;
-        e.result.onanimationstart = AnimStart;
-        Container.appendChild(e.result); 
+        r.data.onmouseenter = EnlargeImage;
+        r.data.onmouseleave = RevertImage;
+        r.data.onanimationend  = AnimEnd;
+        r.data.onanimationstart = AnimStart;
+        Container.appendChild(r.data); 
 }
 
 function PreloadBg()
@@ -104,7 +112,7 @@ function PreloadBg()
         var pad = "00000"
         var ans = pad.substring(0, pad.length - str.length) + str
         path="/res/bg/jpg/ATT/lighter/Frame_"+ans+".png";
-        QUE.add(path,i);
+        QUE.add(path);
     }
     QUE.load();
 
@@ -114,8 +122,9 @@ function PreloadGallery()
     for(i=1;i<=82;i++)
     {
         path=`/prij/1/${i}.jpg`;
-        QUE2.loadFile(path);
+        QUE2.add(path);
     }
+    QUE2.load();
 }
 
 function Loaded(e)

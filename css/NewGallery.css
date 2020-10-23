@@ -24,9 +24,9 @@
     /* 0%{object-rot: 5% 100%;}
     50%{object-position: 100% 0%;}
     100%{object-position: 5% 100%;} */
-    0%{transform: rotate3d(0.2,0.5,-0.2,90deg) scale(0.6);}
-    50%{transform: rotate3d(0.2,0.5,-0.2,90deg) scale(0.9);}
-    100%{transform: rotate3d(0.2,0.5,-0.2,90deg) scale(0.6);}
+    0%{transform: rotate3d(0.2,0.5,-0.2,75deg) scale(0.85);}
+    50%{transform: rotate3d(0.2,0.5,-0.2,75deg) scale(0.9);}
+    100%{transform: rotate3d(0.2,0.5,-0.2,75deg) scale(0.85);}
 
 }
 @keyframes A2
@@ -69,8 +69,8 @@
 }
 #GalleryV2 > img
 {
-    width: 1024px;
-    height: 1024px;
+    width: 512px;
+    height: 512px;
     position: relative;
     overflow: visible;
     flex:2;
@@ -78,7 +78,7 @@
     animation: A1 12s infinite;
     opacity: 0.2;
     filter: var(--FLT);
-    transform: rotate3d(0.2,0.5,-0.2,90deg);
+    transform: rotate3d(0.2,0.5,-0.0,90deg);
     object-fit: cover;
     backface-visibility: hidden;
     transition: all 0.8s;

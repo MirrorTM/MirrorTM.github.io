@@ -12,7 +12,8 @@
     top:0px;
     left:0px;
     background-color: black;
-    display: none;
+    visibility: hidden;
+    display: flex;
     z-index: 2;
     flex-direction:column;
     perspective: calc(100vw * 1.5);

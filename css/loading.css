@@ -5,8 +5,8 @@
     position: absolute;
     top:0px;
     left:0px;
+    z-index: 99;
     background-color: black;
-    z-index: 999;
 }
 #progress
 {

@@ -39,7 +39,6 @@ canvas {
     position: fixed;
     top: 0px;
     left: 50%;
-    z-index: -1;
     backface-visibility: hidden;
     transform:translateZ(0px) translateX(-50%);
     overflow: hidden;
@@ -47,9 +46,9 @@ canvas {
   }
   @keyframes hue
 {
-    0%{backdrop-filter:  hue-rotate(40deg) saturate(0.8); -webkit-backdrop-filter:  hue-rotate(40deg) saturate(0.8);}
+    0%{backdrop-filter:  hue-rotate(0deg) saturate(0.8); -webkit-backdrop-filter:  hue-rotate(0deg) saturate(0.8);}
     50%{backdrop-filter:  hue-rotate(180deg) saturate(0.8); -webkit-backdrop-filter:  hue-rotate(180deg) saturate(0.8);}
-    100%{backdrop-filter:  hue-rotate(40deg) saturate(0.8); -webkit-backdrop-filter:  hue-rotate(40deg) saturate(0.8);}
+    100%{backdrop-filter:  hue-rotate(0deg) saturate(0.8); -webkit-backdrop-filter:  hue-rotate(0deg) saturate(0.8);}
 }
 .stain
 {
@@ -62,7 +61,6 @@ canvas {
     
    animation: hue 12s infinite;
 
-    z-index: -1;
 }
 ::selection{
     color:none;
@@ -72,7 +70,7 @@ canvas {
 {
     width: 100%;
     display: flex;
-    z-index: 3;
+    z-index: 5;
     position: absolute;
     top: 0%;
     right: 0%;
@@ -144,17 +142,38 @@ canvas {
     display: none;
     height: 100%;
     top:0%;
-    z-index: 1;
     align-items: center;
     left: 0px;
     
 }
+.HIDE
+{
 
-@keyframes WORK {
-    0%   {filter:  invert(1) brightness(0.4); mix-blend-mode: difference; -webkit-clip-path: circle(0% at var(--mox) var(--moy)) ;}
-    25%  {filter:  invert(1)brightness(0.4);mix-blend-mode: difference;-webkit-clip-path: circle(2% at var(--mox) var(--moy));}
-    80%  {filter:  invert(1)brightness(0.8);mix-blend-mode: difference;-webkit-clip-path: circle(5% at var(--mox) var(--moy));}
-    100%  {filter:  invert(0)brightness(1);mix-blend-mode: normal;-webkit-clip-path: circle(300% at var(--mox) var(--moy));}
+    animation-fill-mode:forwards;
+    animation-name:HD;
+    animation-duration:2s;
+    animation-iteration-count:1;
+}
+.SHOW
+{
+    background-color: black;
+    animation-fill-mode:forwards;
+        animation-name:SW;
+        animation-duration:2s;
+        animation-iteration-count:1;
+}
+@keyframes HD
+{
+    0%{visibility:visible;z-index: -10; -webkit-clip-path: circle(100% at var(--mox) var(--moy))}
+    25%{visibility:visible;z-index: -10;-webkit-clip-path: circle(100% at var(--mox) var(--moy))}
+    80%{visibility:visible;z-index: -10;-webkit-clip-path: circle(102% at var(--mox) var(--moy));}
+    100%{visibility:hidden;z-index: -10;-webkit-clip-path: circle(0% at var(--mox) var(--moy));}
+}
+@keyframes SW {
+    0%   {filter:  invert(1) brightness(0.4); mix-blend-mode: difference; -webkit-clip-path: circle(0% at var(--mox) var(--moy)) ; visibility:visible;z-index: 3;}
+    25%  {filter:  invert(1)brightness(0.4);mix-blend-mode: difference;-webkit-clip-path: circle(2% at var(--mox) var(--moy));visibility:visible;z-index: 3;}
+    80%  {filter:  invert(1)brightness(0.8);mix-blend-mode: difference;-webkit-clip-path: circle(5% at var(--mox) var(--moy));visibility:visible;z-index: 3;}
+    100%  {filter:  invert(0)brightness(1);mix-blend-mode: normal;-webkit-clip-path: circle(300% at var(--mox) var(--moy));visibility:visible;z-index: 3;}
   }
 #HOME
 {
@@ -162,7 +181,7 @@ canvas {
     transform: rotate3d(0,0,0,45deg);
     width: 100%;
     height: 100%;
-    animation-timing-function:cubic-bezier(2, 0.1, 0.2, 0.1);
+    visibility: hidden;
     transition: all 2s;
 }
 /*#HOME:hover
@@ -383,14 +402,14 @@ display: block;
 {
     position: absolute;
     top: 0px;
-    z-index: 2;
     width: 100vw;
+    visibility: hidden;
     height: 100vh;
     backface-visibility: hidden;
     transform: translate3d(0px,0px,0px);
     left:0px;
     background-color: rgb(0, 0, 0);
-    display: none;
+    display: block;
 }
 #TagCloud .tagcloud
 {
@@ -438,7 +457,6 @@ display: block;
     left:100%;
     transform: translateX(-100%) translateZ(0);
     transition: transform 0.5s;
-    z-index: 5;
 
 }
 #CloseButton:hover

@@ -16,8 +16,7 @@ const WorkBar=document.querySelector('#BAR3');
 
 var images = document.querySelector('#Grid > img');
 
-WorksBtn = document.querySelector("#Wb");
-WorksBtn.onclick=Display;
+
 
 var DLT=0;
 //const BGI = new Image();

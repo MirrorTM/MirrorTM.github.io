@@ -50,10 +50,6 @@ function Display()
     Container.style.animationDuration="2s";
     Container.style.animationIterationCount=1;
     Container.style.display="flex";
-    for(var element of Container.children)
-    {
-        GaleryHeights.push(element.offsetTop);
-    }
 }
 Container.onscroll=scroll;
 

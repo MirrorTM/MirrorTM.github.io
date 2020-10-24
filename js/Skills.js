@@ -9,9 +9,6 @@ const Options=[];
 
 body.appendChild(CLOUD);
 
-//window.onload=ShowCloud;
-SkillsB = document.querySelector('#CenterB');
-SkillsB.onclick=ShowCloud;
 
 function ShowCloud()
 {

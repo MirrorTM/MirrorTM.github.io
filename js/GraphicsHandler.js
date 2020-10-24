@@ -1,3 +1,5 @@
+Element.prototype.SHOWVIEW = SHOWVIEW;
+
 
 const BG=[];
 const IM = new Image();
@@ -13,7 +15,7 @@ PROGR.id="progress";
 LOCK.appendChild(PROGR);
 
 body.appendChild(LOCK);
-
+lastknownview = LOCK;
 UPDATE = false;
 
 Downscale = window.screen.height/1080;
@@ -134,7 +136,10 @@ function Loaded(e)
     //createjs.Ticker.on("tick", Render);
     setInterval(function(){UPDATE=true;},1000/30)
     requestAnimationFrame(Render);
-    LOCK.remove();
+    //lastknownview=Home;
+    Home.SHOWVIEW();
+    //LOCK.remove();
+
 
 }
 
@@ -164,7 +169,33 @@ function Render()
     requestAnimationFrame(Render);
 }
 
-function BodyLoad()
+function SHOWVIEW()
 {
-        window.dispatchEvent(new Event('mousemove'));
+    if(this!=lastknownview)
+    {
+        //lastknownview.style.zindex=-1;
+        // lastknownview.style.animationFillMode="forwards";
+        // lastknownview.style.animationName="HD";
+        // lastknownview.style.animationDuration="2s";
+        // lastknownview.style.animationIterationCount=1;
+        lastknownview.classList.add('HIDE');
+        lastknownview.classList.remove('SHOW');
+
+        this.classList.add('SHOW');
+        this.classList.remove('HIDE');
+
+        // this.style.animationFillMode="forwards";
+        // //this.style.visibility="visible";
+        // this.style.animationName="SW";
+        // this.style.animationDuration="2s";
+        // this.style.animationIterationCount=1;
+        //this.style.zindex=3;
+        if(this == CLOUD)
+        {
+            TagCloud(this, Texts, Options);
+        }
+
+        lastknownview = this;
+
+    }
 }

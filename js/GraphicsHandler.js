@@ -3,6 +3,7 @@ const BG=[];
 const IM = new Image();
 const CAN = document.getElementById("bg");
 const CON=CAN.getContext("2d",{ alpha: false });
+var GaleryHeights=[];
 animationname = "A1";
 const LOCK = document.createElement("div");
 LOCK.id="blocker";
@@ -61,13 +62,10 @@ function Err(e,l,r)
 }
 function EnlargeImage(e)
 {
-    if(animationname=="A1")
-    {
         currentscale = this.getBoundingClientRect().width / this.offsetWidth;
         body.style.setProperty('--imagelastscale' , currentscale);
         this.style.animation= "A2 2.0s 1";
         this.style.animationFillMode="forwards";
-    }
 }
 function RevertImage(e)
 {
@@ -97,11 +95,13 @@ function Handle(e)
 }
 function HandleGallery(l,r)
 {
-        r.data.onmouseenter = EnlargeImage;
-        r.data.onmouseleave = RevertImage;
-        r.data.onanimationend  = AnimEnd;
-        r.data.onanimationstart = AnimStart;
-        Container.appendChild(r.data); 
+        r.data.onmouseenter = ShowImg;//EnlargeImage;
+        //r.data.onmouseleave = HideImg//RevertImage;
+        //r.data.onanimationend  = AnimEnd;
+        //r.data.onanimationstart = AnimStart;
+        r.data.id="item";
+        Container.appendChild(r.data);
+        
 }
 
 function PreloadBg()

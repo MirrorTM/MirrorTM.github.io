@@ -94,13 +94,9 @@ const init_pointer = (options) => {
         }
         if(HOVEREDIMG)
         {
+            
             r= HOVEREDIMG.getBoundingClientRect();
-            H=HOVEREDIMG.naturalHeight;
-            Ratio = HOVEREDIMG.height / H ;
-            W=HOVEREDIMG.naturalWidth * Ratio;
-
             body.style.setProperty('--mousex',(mouseX-((r.right + r.left)/2))*119+'px');
-            HOVEREDIMG.style.setProperty('--actw',W+'px');
             body.style.setProperty('--mousey',(mouseY-((r.bottom + r.top)/2))*119+'px');
             body.style.setProperty('--FLT','grayscale(1)');
             HOVEREDIMG.style.filter="";

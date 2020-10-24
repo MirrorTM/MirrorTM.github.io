@@ -3,6 +3,9 @@ Container.id="GalleryV2";
 Container.setAttribute("data-50","opacity:0.5");
 Container.style.clipPath="circle(0% at var(--mousex) var(--mousey))";
 
+var Hero = new Image();
+Hero.id="Hero";
+Hero.onmouseout = HideImg;
 
 
 header = document.createElement('div');
@@ -11,12 +14,34 @@ header.id="HDR";
 
 
 Container.appendChild(header);
+body.appendChild(Hero);
 
 body.appendChild(Container);
 
-WorksBtn = document.querySelector("#Wb");
-WorksBtn.onclick=Display;
 
+
+function HideImg(e)
+{
+    body.style.setProperty('--op',1);
+    body.style.setProperty('--displayimg',0);
+    body.style.setProperty('--disp','2');
+
+}
+function ShowImg(e)
+{
+    if(window.getComputedStyle(this).getPropertyValue("opacity")!=0)
+    {
+        H=this.naturalHeight;
+        Ratio = Hero.height / H ;
+        W=this.naturalWidth * Ratio;
+        body.style.setProperty('--actw',W+'px');
+        body.style.setProperty('--op',0);
+        body.style.setProperty('--disp',0);
+
+        body.style.setProperty('--displayimg',1);
+        Hero.src=this.src;
+    }
+}
 
 function Display()
 {
@@ -25,38 +50,27 @@ function Display()
     Container.style.animationDuration="2s";
     Container.style.animationIterationCount=1;
     Container.style.display="flex";
-    Container.children[1].style.opacity=1;
+    for(var element of Container.children)
+    {
+        GaleryHeights.push(element.offsetTop);
+    }
 }
 Container.onscroll=scroll;
 
 
+IN=1;
 
 previd =1;
-
 function scroll(e)
 {
-   
-    children  = Container.children;
-    max = e.target.scrollHeight;
-    sect=max/children.length;
-    current = e.target.scrollTop;
-
-    k=trueFloor(current/sect)+1;
-    console.log(k);
-    //percent = current/max;
-   // ind = percent * (children.length*1000);
-   if(k!=previd)
-    {
-    children[k].style.opacity=1;
-    children[previd].style.opacity=0.2;
-
-    previd = k;
-    }
-    N=current*100/max;
+    //e.preventDefault();
+    max=e.target.scrollHeight;
+    
+    current= e.target.scrollTop;
     body.style.setProperty('--scrollY',`${current}px`)
     if(current==max-e.target.offsetHeight)
     {
-        header.innerHTML="End⤒";
+        header.innerHTML="GoBack⤒";
     }
     else
     {

@@ -16,7 +16,6 @@ SkillsB.onclick=ShowCloud;
 function ShowCloud()
 {
    
-    ShowClose();
     CLOUD.style.animationFillMode="forwards";
     CLOUD.style.animationName="WORK";
     CLOUD.style.display="block";

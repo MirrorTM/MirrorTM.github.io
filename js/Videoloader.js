@@ -30,6 +30,7 @@ req.onload = function() {
         BGH.play();
 
         Home.SHOWVIEW();
+        
    }
 }
 req.onerror = function() {

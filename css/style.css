@@ -5,6 +5,7 @@ p{
 html
 {
     backface-visibility: hidden;
+    transform: scale3d(100%,100%,100%);
 }
 body
 {
@@ -24,14 +25,26 @@ body
     --disp:2;
     --op:1;
     --mox:50vw;
+    --opc:0;
 }
+
 @keyframes table
 {
     0%{transform: translateX(-100%);}
     50%{transform: translateX(0%);}
     100%{transform: translateX(100%);}
 }
-
+@keyframes txt
+{
+    0%{-webkit-clip-path:inset(0% 0% 100% 0%);}
+    50%{-webkit-clip-path:inset(0% 0% 0% 0%);}
+    100%{-webkit-clip-path:inset(0% 0% 100% 0%);}
+}
+.textanim
+{
+    animation: txt 1s 1;
+    animation-fill-mode: forwards;
+}
 canvas {
     object-fit: cover;
     width: 974px;
@@ -177,10 +190,7 @@ video
     transform:  translate(-50%, -50%) translateX(var(--itemx) ) translateY(var(--itemy)) ;
 
 }
-#BAR > div:active
-{
-    -webkit-text-emphasis: 'x' white;
-}
+
 #works
 {
     position: absolute;
@@ -283,6 +293,7 @@ display: block;
 
 -webkit-transition : mix-blend-mode 11100ms linear
 }
+
 #bigtext
 {
     letter-spacing: 5px;

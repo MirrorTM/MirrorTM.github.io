@@ -18,6 +18,12 @@
     line-height: 5vh;
     position: absolute;
     color: white;
-    transform: translate(var(--mox) , var(--moy));
     transition: transform 0.1s;
+    animation: rotate 12s infinite;
+    transform-origin: 0% 0% ;
+}
+@keyframes rotate
+{
+    0% {transform: translate(var(--mox),var(--moy)) rotate(0deg)   ;transform-origin: 50% 50% ;}
+    100% {transform: translate(var(--mox),var(--moy)) rotate(360deg)  ;transform-origin: 50% 50% ;}
 }

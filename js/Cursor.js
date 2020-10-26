@@ -15,7 +15,7 @@ var CUR = {RAD:48};
 
 function setup() 
 {
-  createCanvas(body.offsetWidth, body.offsetHeight);
+  createCanvas(windowWidth, windowHeight);
   fill(49, 49, 49);
   stroke(211, 211, 211);
   strokeWeight(2);
@@ -23,7 +23,10 @@ function setup()
   LoadBackground();
  
 }
-
+function windowResized()
+{
+    resizeCanvas(windowWidth,windowHeight)
+}
 function draw() {
    clear();
   if (abs(mouseX - mx) > 0.1) {

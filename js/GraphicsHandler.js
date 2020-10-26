@@ -4,7 +4,7 @@ Element.prototype.SHOWVIEW = SHOWVIEW;
 const BG=[];
 const IM = new Image();
 const CAN = document.getElementById("bg");
-const CON=CAN.getContext("2d",{ alpha: false });
+//const CON=CAN.getContext("2d",{ alpha: false });
 var GaleryHeights=[];
 animationname = "A1";
 const LOCK = document.createElement("div");
@@ -24,8 +24,7 @@ if(Downscale>1)
     Downscale=1;
 }
 body.style.setProperty('--downscale',Downscale);
-CAN.width=974;
-CAN.height=1080;
+
 
 IM.src="";
 
@@ -50,7 +49,8 @@ QUE2.onError.add(Err);
 
 Animating = true;
 
-PreloadBg();
+//PreloadBg();
+
 PreloadGallery();
 IDX=0;
 
@@ -91,9 +91,13 @@ function AnimEnd(e)
     }
     Animating = false;
 }
-function Handle(e)
+function Handle(e,l)
 {
-    BG.push(e.result);
+    l.data.preload="auto";
+
+    //el = new p5.Element(l.data);
+    
+    //BG.push(createImg(l.data.src,""));
 }
 function HandleGallery(l,r)
 {
@@ -108,15 +112,16 @@ function HandleGallery(l,r)
 
 function PreloadBg()
 {
-    for(i=1;i<=256;i++)
-    {
-        var str = "" + i
-        var pad = "00000"
-        var ans = pad.substring(0, pad.length - str.length) + str
-        path="/res/bg/jpg/ATT/lighter/Frame_"+ans+".png";
-        QUE.add(path);
-    }
-    QUE.load();
+    //for(i=1;i<=1;i++)
+    //{
+        //var str = "" + i
+        //var pad = "00000"
+        //var ans = pad.substring(0, pad.length - str.length) + str
+        //path="/res/bg/jpg/ATT/lighter/Frame_"+ans+".png";
+        QUE.add('./res/bg/jpg/ATT/lighter/BG.mp4');
+        QUE.load();
+    //}
+    
 
 }
 function PreloadGallery()
@@ -131,13 +136,24 @@ function PreloadGallery()
 
 function Loaded(e)
 {
-    console.log("loaded");
-    //RenderBg();
-    //createjs.Ticker.on("tick", Render);
-    setInterval(function(){UPDATE=true;},1000/30)
-    requestAnimationFrame(Render);
-    //lastknownview=Home;
-    Home.SHOWVIEW();
+    // console.log("loaded");
+    // //var P5 = new p5(HERO , Home)
+    // //RenderBg();
+    // //createjs.Ticker.on("tick", Render);
+    // //setInterval(function(){UPDATE=true;},1000/30)
+    // //requestAnimationFrame(Render);
+    // //lastknownview=Home;
+    
+    // var Back = Object.values(QUE.resources)[IDX].data;
+    // Home.appendChild(Back);
+    // Back.autoplay=false;
+    // Back.loop=true;
+    // Back.muted=true;
+    // Back.playbackRate = 1.7;
+    // Back.play();
+
+    // Home.SHOWVIEW();
+
     //LOCK.remove();
 
 
@@ -146,6 +162,7 @@ function Loaded(e)
 function Progress(e)
 {
     //console.log(e.progress);
+    
     PROGR.innerHTML=`Loading -> ${parseInt(e.progress)}%`;
 }
 

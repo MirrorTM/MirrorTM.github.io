@@ -5,25 +5,26 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="description" content="ミラー">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0">
         <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="./css/fonts/fonts.css">
         <link href="./css/pointer.css" rel="stylesheet">
         <link href="./css/NewGallery.css" rel="stylesheet">
         <link href="./css/loading.css" rel="stylesheet">
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
         <script src="./js/resource-loader.min.js"></script>
-        
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
         <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
     </head>
     
     <body id="body">
+      <script src="./js/GraphicsHandler.js"></script>
+      <script src="./js/Cursor.js"></script>
+      <script src="./js/NewGallery.js"></script>
+
       <div id="HOME">
-        <canvas id="bg"></canvas>
+        <script src="js/Videoloader.js"></script>
 
-        <script src="./js/GraphicsHandler.js"></script>
-        <script src="./js/NewGallery.js"></script>
-
-        <div class="stain"></div>
         <span  id="intro"><p alt="Hover">#Architecture#Design#Art</p></span>
         <div id="AB"><p alt="Hover">Simply. =Design</p></div>
 
@@ -39,18 +40,20 @@
           <div onclick="Home.SHOWVIEW();" id="TEXT"><p alt="Hover">Mirror™</p></div>
 
           <div id="BAR" class="BAR">
-            <div alt="HoverMe" onclick="Container.SHOWVIEW();" id="Wb"><p>Works</p></div>
+            <div  onclick="Container.SHOWVIEW();" id="Wb"><p alt="HoverMe">Works</p></div>
             <span></span>
-            <div id="CenterB" onclick="CLOUD.SHOWVIEW();" alt="HoverMe"><p>Skills</p></div>
+            <div id="CenterB" onclick="CLOUD.SHOWVIEW();" ><p alt="HoverMe">Skills</p></div>
             <span></span>
-            <div alt="HoverMe" onclick="window.location.href = 'http://www.instagram.com/mirrordsgn';"><p>Insta</p></div>
+            <div  onclick="window.location.href = 'http://www.instagram.com/mirrordsgn';"><p alt="HoverMe">Insta</p></div>
             <span></span>
-            <div alt="HoverMe" onclick="window.location.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=marknoonmn@gmail.com&su=coming from your website';"><p>Contact</p></div>           
+            <div  onclick="window.location.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=marknoonmn@gmail.com&su=coming from your website';"><p alt="HoverMe">Contact</p></div>           
         
           </div>
-          
-          <script src="./js/pointer.js"></script>
+
+          <!-- <script src="./js/pointer.js"></script> -->
           <script src="./js/default.js"></script>
+          
+          
           <script src="./js/Skills.js"></script>
           <script src="./js/TagCloud.js"></script>
           <script src="./js/close.js"></script>         

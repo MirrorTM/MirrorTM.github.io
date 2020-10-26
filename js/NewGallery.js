@@ -8,8 +8,9 @@ Hero.id="Hero";
 Hero.onmouseout = HideImg;
 
 
-header = document.createElement('div');
+header = document.createElement('p');
 header.innerHTML ="Scroll Down⤓";
+header.setAttribute("alt","Hover");
 header.id="HDR";
 
 

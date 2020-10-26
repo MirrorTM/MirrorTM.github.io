@@ -1,11 +1,11 @@
-init_pointer({
-    pointerColor: "#222"
-  })
+// init_pointer({
+//     pointerColor: "#222"
+//   })
 var run = 1;
 var idex = 0;
 var Update = false;
-const canvas = document.getElementById("bg");
-const context=canvas.getContext("2d");
+//const canvas = document.getElementById("bg");
+//const context=canvas.getContext("2d");
 const body=document.getElementById('body');
 const logo=document.getElementById('TEXT');
 const Home = document.getElementById('HOME');
@@ -133,11 +133,7 @@ function Place(d , img)
     div = document.getElementById("imgrid");
     div.appendChild(img);         
 }
-function Error(file)
-{
-   //alert(file);
-   v=0;
-}
+
 
 function F(i)
 {

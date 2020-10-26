@@ -113,8 +113,8 @@ function SHOWVIEW()
 {
     if(this!=lastknownview)
     {
+
         //this.onanimationend=RevealTExt;
-        //this.onanimationstart=HideText;
 
 
         lastknownview.classList.add('HIDE');
@@ -131,22 +131,11 @@ function SHOWVIEW()
 }
 function RevealTExt(e)
 {
-    var tween = function() {
-        TweenMax.staggerFrom('p', 2, {
-          yPercent: -100,opacity:0,
-          ease: Elastic.easeOut.config(1, 0.75),clearProps:"all"
-        }, 0.1);
-      };
-      tween();
+    body.style.setProperty('--state','txt');
 }
+
 function HideText(e)
 {
-    body.style.setProperty('--opc',1);
-    twee = TweenMax.staggerFrom(
-        'p', 
-        0.25, 
-        { opacity:1, skewY:2,y: 100, ease: Back.easeOut,clearProps:"transform"},
-        0.08
-      );
-      twee.restart();
+    body.style.setProperty('--state','null');
+      
 }

@@ -1,5 +1,6 @@
 p{
     cursor:default;
+    
 }
 
 html
@@ -23,6 +24,7 @@ body
     --moy:50vh;
     --displayimg:0;
     --disp:2;
+    --state:null;
     --op:1;
     --mox:50vw;
     --opc:0;
@@ -34,11 +36,15 @@ body
     50%{transform: translateX(0%);}
     100%{transform: translateX(100%);}
 }
+@keyframes null
+{
+    0%{-webkit-clip-path:inset(100% 0% 100% 0%);}
+    100%{-webkit-clip-path:inset(100% 0% 100% 0%);}
+}
 @keyframes txt
 {
-    0%{-webkit-clip-path:inset(0% 0% 100% 0%);}
-    50%{-webkit-clip-path:inset(0% 0% 0% 0%);}
-    100%{-webkit-clip-path:inset(0% 0% 100% 0%);}
+    0%{transform:skewY(10deg) translateY(-50px); -webkit-clip-path:inset(100% 0% 100% 0%);}
+    100%{transform:skewY(0deg) translateY(0px);-webkit-clip-path:inset(-300% 0% -300% 0%);}
 }
 .textanim
 {
@@ -185,9 +191,9 @@ video
 #BAR > div >p:hover
 {
     -webkit-transition: transform 0.3s;
-
+    animation-name: none;
     transform-origin: 50% 50%;
-    transform:  translate(-50%, -50%) translateX(var(--itemx) ) translateY(var(--itemy)) ;
+    transform:  translate(-50%, -50%) translateX(var(--itemx) ) translateY(var(--itemy)) !important;
 
 }
 

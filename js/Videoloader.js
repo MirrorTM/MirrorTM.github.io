@@ -20,14 +20,15 @@ req.onload = function() {
     //setInterval(function(){UPDATE=true;},1000/30)
     //requestAnimationFrame(Render);
     //lastknownview=Home;
-    
-    
+         BGH.setAttribute('playsinline', 'playsinline');
+         BGH.setAttribute('muted', 'muted');
+         BGH.autoplay=false;
+         BGH.loop=true;
+         BGH.muted=true;
+         BGH.playbackRate = 1.7;
+         BGH.play();
         Home.appendChild(BGH);
-        BGH.autoplay=false;
-        BGH.loop=true;
-        BGH.muted=true;
-        BGH.playbackRate = 1.7;
-        BGH.play();
+        
 
         Home.SHOWVIEW();
         

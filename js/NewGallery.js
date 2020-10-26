@@ -10,7 +10,6 @@ Hero.onmouseout = HideImg;
 
 header = document.createElement('p');
 header.innerHTML ="Scroll Down⤓";
-header.setAttribute("alt","Hover");
 header.id="HDR";
 
 
@@ -75,16 +74,4 @@ function scroll(e)
  
     }
     
-}
-
-Number.prototype.map = function (in_min, in_max, out_min, out_max) {
-    return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-  }
-function trueFloor(x)
-{
-    x = x * 100;
-    if(x > .0000000000000006)
-        x = x - .0000000000000006;
-    x = Math.floor(x/100);
-    return x;
 }

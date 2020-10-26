@@ -1,17 +1,10 @@
 //let PRAD=48;
-let easing=0.2;
+let easing = 0.2;
 let mx = 50;
 let my = 50;
-let d=1;
+let d = 1;
 
-function Dist(x1,y1,x2,y2)
-{
-    var a = x1 - x2;
-    var b = y1 - y2;
-
-   return Math.sqrt( a*a + b*b );
-}
-var CUR = {RAD:48};
+let CUR = {RAD: 48};
 
 function setup() 
 {
@@ -42,11 +35,6 @@ function draw() {
 }
 function mouseMoved()
 {
-//   PRAD-=1.5;
-//   setTimeout(function(){PRAD+=1.5},100);
-
-        
-
         HOVERED =document.querySelector('p[alt="HoverMe"]:hover');
         JustHover = document.querySelector('p[alt="Hover"]:hover');
         HOVEREDIMG=document.querySelector('img:hover');
@@ -78,9 +66,5 @@ function mouseMoved()
             TweenLite.to(CUR, 0.5, {RAD:48});
             PRAD=48;
             fill(49, 49, 49);
-            //stroke(211, 211, 211);
-            //strokeWeight(2);
         }
-     
-
 }

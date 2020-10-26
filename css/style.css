@@ -184,9 +184,9 @@ video
 }
 #BAR > div >p:hover
 {
-    -webkit-transition: transform 0.5s;
+    -webkit-transition: transform 0.3s;
 
-    transform-origin: 0% 0%;
+    transform-origin: 50% 50%;
     transform:  translate(-50%, -50%) translateX(var(--itemx) ) translateY(var(--itemy)) ;
 
 }

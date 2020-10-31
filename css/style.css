@@ -1,24 +1,10 @@
 p{
     cursor:default;
-    
+    opacity: var(--opc);
+    transition: opacity 1s;
 }
-
-html
+:root
 {
-    backface-visibility: hidden;
-    transform: scale3d(100%,100%,100%);
-}
-body
-{
-    --imagelastscale:0.6;
-    position: absolute;
-    left: 0%;
-    right: 0%;
-    background-color: black ;
-    width:100%;
-    height: 100%;
-    overflow: hidden;
-    margin: 0px;
     --mousex:50vw;
     --mousey:50vh;
     --moy:50vh;
@@ -28,6 +14,27 @@ body
     --op:1;
     --mox:50vw;
     --opc:0;
+    --imagelastscale:0.6;
+    --dot:0px;
+    --Prog:100%;
+
+}
+html
+{
+    backface-visibility: hidden;
+    transform: scale3d(100%,100%,100%);
+}
+body
+{
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    background-color: black ;
+    width:100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0px;
+   
 }
 
 @keyframes table
@@ -128,30 +135,38 @@ video
 }
 #defaultCanvas1
 {
-  
+        background-color: black;
         object-fit: cover;
-        width: 974px;
+        width: 100%;
         height: 100vh;
         position: fixed;
         top: 0px;
         left: 50%;
+        z-index: 5;
         backface-visibility: hidden;
-        transform:translateZ(0px) translateX(-50%);
         overflow: hidden;
         /* filter:saturate(2.6) brightness(0.9); */
       
 }
+
 #BAR
 {
     -webkit-clip-path:inset(0% 0% 0% 0%);
-    padding-left: 5vw;
-    padding-right: 5vw;
-    width: 25vw;
+    padding-left: 30px;
+    padding-right: 30px;
     height: 120px;
-    line-height: calc(120px - 28px);
+    
+    width: 50%;
+    display: flex;
+    z-index: 10;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    
     transition: -webkit-clip-path 2s;
     mix-blend-mode: difference;
 }
+
 #BAR2
 {
     height: 100vh;
@@ -162,21 +177,24 @@ video
     z-index: -1;
     width: 72vw;
 }
-.BAR > div
+
+#BAR > div
 {
-    text-align:center;
     height: auto;
-   
+    padding-left: 35px;
+    padding-right: 35px;
     color: white;
     flex:1;
-    font-size: 14px;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    display: flex;
     font-family: 'CircleReg';
     font-weight: lighter;
-    text-transform: uppercase;
     -webkit-transition: transform 0.5s;
-    letter-spacing: 2px;
+    letter-spacing: 0.12em;
     backface-visibility: hidden;
-    -webkit-font-smoothing:antialiased;
+    -webkit-font-smoothing: antialiased;
 
 }
 .BAR > span
@@ -186,6 +204,8 @@ video
 #BAR>div>p
 {
     -webkit-transition: transform 0.5s;
+    -webkit-font-smoothing: antialiased;
+    flex:1;
 
 }
 #BAR > div >p:hover
@@ -194,7 +214,7 @@ video
     animation-name: none;
     transform-origin: 50% 50%;
     transform:  translate(-50%, -50%) translateX(var(--itemx) ) translateY(var(--itemy)) !important;
-
+    -webkit-font-smoothing: antialiased;
 }
 
 #works
@@ -227,9 +247,9 @@ video
 }
 @keyframes HD
 {
-    0%{visibility:visible;z-index: -10; -webkit-clip-path: circle(100% at var(--mox) var(--moy))}
-    25%{visibility:visible;z-index: -10;-webkit-clip-path: circle(100% at var(--mox) var(--moy))}
-    80%{visibility:visible;z-index: -10;-webkit-clip-path: circle(102% at var(--mox) var(--moy));}
+    0%{visibility:visible;z-index: -10; -webkit-clip-path: circle(1000% at var(--mox) var(--moy))}
+    25%{visibility:visible;z-index: -10;-webkit-clip-path: circle(1000% at var(--mox) var(--moy))}
+    80%{visibility:visible;z-index: -10;-webkit-clip-path: circle(1000% at var(--mox) var(--moy));}
     100%{visibility:hidden;z-index: -10;-webkit-clip-path: circle(0% at var(--mox) var(--moy));}
 }
 @keyframes SW {
@@ -238,12 +258,15 @@ video
     80%  {filter:  invert(1)brightness(0.8);mix-blend-mode: difference;-webkit-clip-path: circle(5% at var(--mox) var(--moy));visibility:visible;z-index: 3;}
     100%  {filter:  invert(0)brightness(1);mix-blend-mode: normal;-webkit-clip-path: circle(300% at var(--mox) var(--moy));visibility:visible;z-index: 3;}
   }
-#HOME
+home-screen
 {
     backface-visibility: hidden;
     transform: rotate3d(0,0,0,45deg);
     width: 100%;
     height: 100%;
+    position: absolute;
+    top:0px;
+    left:0px;
     visibility: hidden;
     transition: all 2s;
 }
@@ -256,27 +279,43 @@ video
     50%  {transform: rotateX(70deg) rotateY(0deg) rotateZ(-45deg) scale(0.5);}
     100%  {transform:  translateY(800%) rotateX(70deg) rotateY(0deg) rotateZ(-45deg) scale(0.5)  ;}
   }
-#TEXT:hover #pointer-ring
-{
-    transform: scale(2);
-}
-#TEXT
+#dot
 {
     position: absolute;
-    left: calc(50%);
-    width: fit-content;
+width: 9px;
+height: 9px;
+left: var(--dot);
+transform: translateY(-100%);
+top: 60px;
+border-radius: 50%;
+z-index: 100;
+transition: left 2s;
+mix-blend-mode: difference;
+
+background: #FFFFFF;
+}
+logo-logo
+{
+    position: absolute;
+    left: 0px;
+    width:  120px;
     top: 0px;
     height: 120px;
-    transform: translate(-50%,0%);
-    background-color: transparent;
-    text-align: center;
-    font-size: 4.811vh;
-    line-height: calc(120px - 9.62vh);
-    color: white;
     z-index: 9;
+    font-size:48px;
+    color: white;
+    letter-spacing: 0.12em;
+    transform: translateX(25%);
     mix-blend-mode: difference;
     font-family: 'CircleBold';
-    font-weight: bolder;
+    background-color: transparent;
+    
+}
+logo-logo>img
+{
+    margin: 0px;
+    width: 208px;
+    height: 100%;
 }
 .bar2
 {
@@ -349,13 +388,14 @@ display: block;
     left:50%;
     color: white;
     text-transform: uppercase;
-    letter-spacing: 32px;
     mix-blend-mode: difference;
     transform: translate(-50% , -50%);
     text-align: center;
     font-family: "DR";
+    font-size: 7.5vw;
+    line-height: 212px;
+    letter-spacing: 0.1em;
     width: fit-content;
-    font-size: 78px;
     z-index: 5;
 }
 #email:hover

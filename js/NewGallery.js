@@ -1,34 +1,31 @@
-var Container = document.createElement("div");
-Container.id="GalleryV2";
-Container.setAttribute("data-50","opacity:0.5");
-Container.style.clipPath="circle(0% at var(--mousex) var(--mousey))";
+import { Mirror } from "../logic/APP";
 
-var Hero = new Image();
-Hero.id="Hero";
-Hero.onmouseout = HideImg;
-
-
-header = document.createElement('p');
-header.innerHTML ="Scroll Down⤓";
-header.id="HDR";
-
-
-Container.appendChild(header);
-body.appendChild(Hero);
-
-body.appendChild(Container);
-
-
-
-function HideImg(e)
+export class Gallery extends HTMLElement
 {
-    body.style.setProperty('--op',1);
-    body.style.setProperty('--displayimg',0);
-    body.style.setProperty('--disp','2');
+    constructor()
+    {
+        
+        this.id="GalleryV2";
+        this.Hero = new Image();
+        this.Hero.id="Hero";
+        this.Hero.onmouseout = HideImg;
+        this.header = document.createElement('p');
+        this.header.innerHTML ="Scroll Down⤓";
+        this.header.id="HDR";
+        this.appendChild(header);
+        this.onscroll=this.scroll;
 
-}
-function ShowImg(e)
-{
+        Mirror.PLACE(Hero);
+    }
+    HideImg(e)
+    {
+        body.style.setProperty('--op',1);
+        body.style.setProperty('--displayimg',0);
+        body.style.setProperty('--disp','2');
+
+    }
+    ShowImg(e)
+    {
     if(window.getComputedStyle(this).getPropertyValue("opacity")!=0)
     {
         H=this.naturalHeight;
@@ -41,37 +38,24 @@ function ShowImg(e)
         body.style.setProperty('--displayimg',1);
         Hero.src=this.src;
     }
-}
-
-function Display()
-{
-    Container.style.animationFillMode="forwards";
-    Container.style.animationName="WORK";
-    Container.style.animationDuration="2s";
-    Container.style.animationIterationCount=1;
-    Container.style.display="flex";
-}
-Container.onscroll=scroll;
-
-
-IN=1;
-
-previd =1;
-function scroll(e)
+    }
+    scroll(e)
 {
     //e.preventDefault();
     max=e.target.scrollHeight;
     
     current= e.target.scrollTop;
-    body.style.setProperty('--scrollY',`${current}px`)
+    document.documentElement.style.setProperty('--scrollY',`${current}px`)
     if(current==max-e.target.offsetHeight)
     {
-        header.innerHTML="GoBack⤒";
+        this.header.innerHTML="GoBack⤒";
     }
     else
     {
-        header.innerHTML="More⤓";
+        this.header.innerHTML="More⤓";
  
     }
     
+}
+
 }

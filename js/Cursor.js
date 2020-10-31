@@ -13,7 +13,7 @@ function setup()
   stroke(211, 211, 211);
   strokeWeight(2);
   //PreloadBg();
-  LoadBackground();
+  //LoadBackground();
  
 }
 function windowResized()

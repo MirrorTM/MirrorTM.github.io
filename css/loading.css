@@ -10,8 +10,11 @@
 }
 #progress
 {
-    width:auto;
-    height:5vh;
+    background: url(../res/Loading.svg);
+    background-size: 512px 512px;
+
+    width:512px;
+    height:512px;
     font-family: DR;
     font-size:5vh;
     text-align: center;
@@ -19,11 +22,21 @@
     position: absolute;
     color: white;
     transition: transform 0.1s;
-    animation: rotate 12s infinite;
-    transform-origin: 0% 0% ;
+    animation: rotate 22s infinite;
+}
+#prec
+{
+    position: absolute;
+    background-color: rgb(59, 61, 60);
+    width: 715px;
+    height: 715px;
+    mix-blend-mode: multiply;
+    transform: translate(var(--mox),var(--moy)) translate(-50%,-50%);
+    -webkit-clip-path:inset(var(--Prog) 0% 0% 0%);
+    transition: all 1s;
 }
 @keyframes rotate
 {
-    0% {transform: translate(var(--mox),var(--moy)) rotate(0deg)   ;transform-origin: 50% 50% ;}
-    100% {transform: translate(var(--mox),var(--moy)) rotate(360deg)  ;transform-origin: 50% 50% ;}
+    0% {transform: translate(var(--mox),var(--moy)) translate(-50%,-50%) rotateY(0deg) rotateZ(0deg) ;}
+    100% {transform: translate(var(--mox),var(--moy)) translate(-50%,-50%)  rotateY(360deg) rotateZ(360deg);}
 }

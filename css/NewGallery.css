@@ -4,10 +4,20 @@
   html {
     scroll-behavior: smooth;
   }
+#spacer
+{
+    position: absolute;
+    left: 0px;
+    top:0px;
+    width: 100%;
+    height: 120px;
+    background-color: black;
+    z-index: 3;
+}
 #GalleryV2
 {
     width: 100%;
-    height: calc(100% );
+    height: calc(100%);
     position: absolute;
     top:0px;
     left:0px;
@@ -15,8 +25,10 @@
     visibility: hidden;
     display: flex;
     z-index: 2;
+    scroll-behavior: smooth;
+    scroll-snap-type: proximity;
     flex-direction:column;
-    perspective: calc(100vw * 1.5);
+    perspective: calc(100vw * 1);
     overflow-y: scroll;
     perspective-origin: right;
     transition: tranform 1s;
@@ -27,45 +39,25 @@
     /* 0%{object-rot: 5% 100%;}
     50%{object-position: 100% 0%;}
     100%{object-position: 5% 100%;} */
-    0%{transform: rotate3d(0.2,0.5,-0.2,75deg) scale(0.85);}
-    50%{transform: rotate3d(0.2,0.5,-0.2,75deg) scale(0.9);}
-    100%{transform: rotate3d(0.2,0.5,-0.2,75deg) scale(0.85);}
-
-}
-@keyframes A2
-{
-    /* 0%{object-rot: 5% 100%;}
-    50%{object-position: 100% 0%;}
-    100%{object-position: 5% 100%;} */
-    0%{transform: rotate3d(0.2,0.5,-0.2,90deg) scale(var(--imagelastscale));}
-    50%{transform: rotate3d(0.2,0.5,-0.2,0deg)  translateX(calc(50vw - 50%))  scale(0.5);}
-    100%{transform:  translateX(calc(50vw - 50%)) scale(0.9);}
-
-}
-@keyframes A3
-{
-    /* 0%{object-rot: 5% 100%;}
-    50%{object-position: 100% 0%;}
-    100%{object-position: 5% 100%;} */
-    0%{transform:  translateX(calc(50vw - 50%)) scale(0.9);}
-
-    50%{transform: rotate3d(0.2,0.5,-0.2,0deg)  translateX(calc(50vw - 50%))  scale(0.5);}
-    100%{transform: rotate3d(0.2,0.5,-0.2,90deg) scale(0.6);}
+    0%{transform: rotate3d(0.2,1.5,-0.0,75deg) scale(0.85);}
+    50%{transform: rotate3d(0.2,1.5,-0.0,75deg) scale(0.9);}
+    100%{transform: rotate3d(0.2,1.5,-0.0,75deg) scale(0.85);}
 
 }
 #HDR
 {
-    width: 25vw;
+    width: 50vw;
     height: 100vh;
     top: 0px;
     right: 0px;
     text-align: center;
     line-height: 100vh;
     color: white;
-    font-family: DR;
+    text-transform: uppercase;
+    font-family: CircleEB;
     opacity:var(--op);
     padding-right: 5vw;
-    font-size: 5vh;
+    font-size: 7.5vw;
     position: absolute;
     word-wrap: break-word;
     transition: all 1s;
@@ -74,7 +66,7 @@
  #Hero
 {
     width: var(--actw);
-    height: 85%;
+    height: calc(100% - 120px);
     position: absolute;
     top:calc(50% + 0px);
     left: 50%;
@@ -83,11 +75,12 @@
     animation: none;
     transform: rotateY(0deg) translate(-50% , -50%) scale(var(--displayimg))!important;
     transition: all 1s;
-    z-index: 12;
+    z-index: 4;
 }
 #GalleryV2 > img
 {
-    width: 1024px;
+
+    width: 50vw;
     height: 1024px;
     position: relative;
     overflow: visible;
@@ -95,8 +88,8 @@
     z-index: var(--disp) !important;
     opacity:var(--op);
     animation: A1 12s infinite;
-    filter: var(--FLT);
     transform: rotate3d(0.2,0.5,-0.0,90deg);
+    transform-origin: 0 0;
     object-fit: cover;
     backface-visibility: hidden;
     transition: all 0.8s;
@@ -114,4 +107,18 @@
     
     filter: none;
     z-index: 3;
+}
+#blurcont
+{
+position: absolute;
+width: 100%;
+height: 199px;
+
+/* Gray 1 */
+
+background: linear-gradient(180deg, rgba(0, 0, 0, 0.66) 0%, rgba(0, 0, 0, 0) 100%);
+mix-blend-mode: normal;
+filter: blur(32px);
+backdrop-filter: blur(128px);
+/* Note: backdrop-filter has minimal browser support */
 }

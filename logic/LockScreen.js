@@ -11,9 +11,9 @@ export class LockScreen extends HTMLElement
         this.PROGR.id="progress";
         //this.PROGR.innerHTML=`Loading -> ${0}%`;
         this.appendChild(this.PROGR);
-        this.prec=document.createElement('div');
-        this.prec.id="prec";
-        this.appendChild(this.prec);
+        //this.prec=document.createElement('div');
+        //this.prec.id="prec";
+        //this.appendChild(this.prec);
         this.addEventListener("PROGRESS",this.Update);
 
         //this.innerHTML+='<link href="./css/loading.css" rel="stylesheet">'

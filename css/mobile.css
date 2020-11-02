@@ -17,19 +17,61 @@
     transform:  translate(-50%,50%);
 }
 @media (max-width: 767px) { 
+    :root
+    {
+        --itemx:0;
+        --itemy:0;
+        --mox:50vw;
+        --moy:50vh;
+    }
+    #Hero
+    {
+        
+       
+    }
     #dot
     {
         display: none;
+    }
+    #GalleryV2
+    {
+        -webkit-perspective: 500px !important;
+    }
+    #GalleryV2 > img
+    {
+        -webkit-perspective: 500px !important;
+        
+    }
+    logo-logo
+    {
+        width:120px;
+        height: 120px;
+    }
+    logo-logo >img
+    {
+        width:208px;
+        height: 120px;
     }
     #BAR{
         display: none;
 
         width: 100vw;
         height: 100vh;
+        margin-bottom: 25% !important;
+        padding: 0;
+        align-items: center;
         flex-direction: column;
-        backdrop-filter: blur(512px) brightness(32);
-        mix-blend-mode: multiply;
+        mix-blend-mode: normal;
         background-color: black;
+    }
+    #BAR>div
+    {
+       
+        font-size: 30px !important;
+        text-align: center;
+        width:50%;
+        transform: none !important;
+        padding: 0;
     }
     #BAR>div:active ~#BAR
     {

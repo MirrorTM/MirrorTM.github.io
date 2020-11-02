@@ -15,10 +15,11 @@ req.onload = function() {
       var videoBlob = this.response;
       var vid = URL.createObjectURL(videoBlob);
       BGH.src = vid;
+     
       console.log("loaded");
-      BGH.setAttribute('playsinline', 'playsinline');
-      BGH.setAttribute('muted', 'muted');
-      BGH.autoplay=false;
+      BGH.setAttribute('playsinline', '');
+      BGH.setAttribute('muted', '');
+      //BGH.autoplay=true;
       BGH.loop=true;
       BGH.muted=true;
       BGH.playbackRate = 1;

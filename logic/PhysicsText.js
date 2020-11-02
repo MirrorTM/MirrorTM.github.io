@@ -1,4 +1,5 @@
 
+let myp5=false;
 let lkk = function(p)
 {
 var Engine = Matter.Engine,
@@ -48,10 +49,10 @@ p.setup =function() {
   engine = Engine.create();
   world = engine.world;
   p.textSize(82);
-
+  
   
  
- grounds.push(Bodies.rectangle(windowWidth/2,windowWidth/2 , windowWidth, 120, { isStatic: true }));
+ grounds.push(Bodies.rectangle(windowWidth/2,windowHeight , windowWidth, 120, { isStatic: true }));
  grounds.push(Bodies.rectangle(0,height , 120, height, { isStatic: true }));
  grounds.push(Bodies.rectangle(width,height , 120, height, { isStatic: true }));
 
@@ -72,7 +73,7 @@ p.setup =function() {
   for (let text of Skills)
       {
       let bbox = myFont.textBounds(text.toUpperCase(), 0, 0, 82);
-      boxes.push(Bodies.rectangle(width/2+getRandomArbitrary(-380,380), 80, bbox.w, bbox.h));
+      boxes.push(Bodies.rectangle(width/2+getRandomArbitrary(-380,380), -6000, bbox.w, bbox.h));
       World.add(world,boxes[boxes.length-1])
     } 
 
@@ -111,13 +112,18 @@ p.draw = function() {
 
     p.pop()
   }
- startT = p.millis();
 }
 }
+
+
 
 function StartSkills()
 {
-
+  if(myp5)
+  {
+    myp5.remove();
+  }
   myp5 = new p5(lkk,"SKILLS");
+
 }
 //let myp5 = new p5(lkk);

@@ -9,11 +9,10 @@ import * as RL from '../js/resource-loader.min.js'
 import * as sk from './Skills.js'
 Element.prototype.SHOWVIEW = SHOWVIEW;
 
-let myp5 = null;
 
 function SHOWVIEW(e)
 {
-    myp5 = null;
+    
     let left = e.getBoundingClientRect().left;
     document.documentElement.style.setProperty('--dot',(left+(e.offsetWidth))+"px")
     if(this!=Mirror.lastknownview)

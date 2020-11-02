@@ -21,6 +21,9 @@ p{
 }
 html
 {
+    overflow: hidden;
+    margin: 0;
+    padding: 0; 
     backface-visibility: hidden;
     transform: scale3d(100%,100%,100%);
 }
@@ -33,7 +36,8 @@ body
     width:100%;
     height: 100%;
     overflow: hidden;
-    margin: 0px;
+    margin: 0;
+    padding: 0;
    
 }
 
@@ -125,9 +129,10 @@ video
     width:947px;
     height: 1080px;
     position: fixed;
-    top: 0px;
+    top: 0%;
     animation: hue 9s infinite;
     left: calc(50% - 473.5px);
+    transform: scale(calc(100vh / 1080px));
     /* transform:translateZ(0px) translateX(-0%); */
     overflow: hidden;
     /* transform-origin: 50% 50%;
@@ -164,7 +169,7 @@ skills-skills
     -webkit-clip-path:inset(0% 0% 0% 0%);
     padding-left: 30px;
     padding-right: 30px;
-    height: 120px;
+    height: 6.250vw;
     
     width: 50%;
     display: flex;
@@ -191,13 +196,13 @@ skills-skills
 #BAR > div
 {
     height: auto;
-    padding-left: 35px;
-    padding-right: 35px;
+    padding-left:1.823vw;
+    padding-right: 1.823vw;
     color: white;
     flex:1;
     justify-content: center;
     text-align: center;
-    font-size: 30px;
+    font-size: 1.563vw;
     display: flex;
     font-family: 'CircleReg';
     font-weight: lighter;
@@ -296,7 +301,7 @@ width: 9px;
 height: 9px;
 left: var(--dot);
 transform: translateY(-100%);
-top: 60px;
+top: calc(6.250vw / 2);
 border-radius: 50%;
 z-index: 100;
 transition: left 2s;
@@ -308,9 +313,9 @@ logo-logo
 {
     position: absolute;
     left: 0px;
-    width:  120px;
+    width: 6.250vw;
     top: 0px;
-    height: 120px;
+    height: 6.250vw;
     z-index: 9;
     font-size:48px;
     color: white;
@@ -324,7 +329,7 @@ logo-logo
 logo-logo>img
 {
     margin: 0px;
-    width: 208px;
+    width: 10.833vw;
     height: 100%;
 }
 .bar2
@@ -418,7 +423,8 @@ display: block;
     left:50%;
     color: white;
     mix-blend-mode: difference;
-    transform: translate(-50% , -50%)  rotate3d(0.1,0,0,calc(var(--par)));
+    transform: translate(-50% , -50%)   rotate3d(0.1,0,0,calc(var(--par)));
+   
     text-align: center;
     font-family: "CircleEB";
     font-size: 7.5vw;

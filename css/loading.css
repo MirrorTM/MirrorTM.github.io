@@ -4,6 +4,8 @@
     height:100%;
     position: absolute;
     top:0px;
+    padding: 0%;
+    margin: 0;
     left:0px;
     z-index: 99;
     background-color: black;
@@ -12,15 +14,11 @@
 {
     background: url(../res/Loading.svg);
     background-size: 512px 512px;
-
     width:512px;
     height:512px;
-    font-family: DR;
-    font-size:5vh;
-    text-align: center;
-    line-height: 5vh;
     position: absolute;
     color: white;
+    -webkit-perspective: 500px;
     transition: transform 0.1s;
     animation: rotate 22s infinite;
 }
@@ -37,6 +35,6 @@
 }
 @keyframes rotate
 {
-    0% {transform: translate(var(--mox),var(--moy)) translate(-50%,-50%) rotateY(0deg) rotateZ(0deg) ;}
-    100% {transform: translate(var(--mox),var(--moy)) translate(-50%,-50%)  rotateY(360deg) rotateZ(360deg);}
+    0% {transform: translateZ(512px) translate(var(--mox),var(--moy)) translate(-50%,-50%) rotateY(0deg) rotateZ(0deg) ;}
+    100% {transform:translateZ(512px) translate(var(--mox),var(--moy)) translate(-50%,-50%)  rotateY(360deg) rotateZ(360deg) ;}
 }

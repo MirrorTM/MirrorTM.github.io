@@ -24,23 +24,30 @@ function windowResized()
     resizeCanvas(windowWidth,windowHeight)
 }
 function draw() {
-    clear();
+    //clear();
     if (abs(mouseX - mx) > 0.1) {
       mx = mx + (mouseX - mx) * easing;
     }
     if (abs(mouseY - my) > 0.1) {
       my = my + (mouseY - my) * easing;
     }
-    background(225,225,225,0);
+    
+    BG = color(0, 0, 0);
+    BG.setAlpha(90);
+    background(BG);
+    
+    angle = atan2(my - windowHeight/2, mx - windowWidth/2);
+
     document.documentElement.style.setProperty('--mox',mx+'px');
     document.documentElement.style.setProperty('--moy',my+'px');
+    document.documentElement.style.setProperty('--par',angle+'rad')
     circle(mx,my,CUR.RAD)
 }
 
 function mouseMoved()
 {
         HOVERED =document.querySelector('p[alt="HoverMe"]:hover');
-        JustHover = document.querySelector('img[alt="Hover"]:hover');
+        JustHover = document.querySelector('img[alt="Hover"]:hover') ||document.querySelector('div[alt="Hover"]:hover');
         JustHover2 = document.querySelector('p[alt="Hover"]:hover');
 
         HOVEREDIMG=document.querySelector('img:hover');

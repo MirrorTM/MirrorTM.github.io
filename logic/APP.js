@@ -6,13 +6,16 @@ import * as D from './Header.js'
 import * as E from './Logo.js'
 import { Gallery } from './NewGallery.js'
 import * as RL from '../js/resource-loader.min.js'
+import * as sk from './Skills.js'
 Element.prototype.SHOWVIEW = SHOWVIEW;
 
+let myp5 = null;
 
 function SHOWVIEW(e)
 {
-    let left = e.getBoundingClientRect().right+'px';
-    document.documentElement.style.setProperty('--dot',left)
+    myp5 = null;
+    let left = e.getBoundingClientRect().left;
+    document.documentElement.style.setProperty('--dot',(left+(e.offsetWidth))+"px")
     if(this!=Mirror.lastknownview)
     {
         Mirror.lastknownview.classList.add('HIDE');
@@ -86,7 +89,7 @@ function PreloadGallery()
 
 export let Mirror = new APP();
 export let gallery=new Gallery();
-
+export let SKILL=new sk.Skills();
 function onImageLoad(e)
 {
     e.detail.data.onmouseenter = gallery.ShowImg;
@@ -104,4 +107,21 @@ Mirror.PLACE(gallery.Hero);
 Mirror.PLACE(gallery);
 Mirror.PLACE(ToP);
 document.querySelector('#Wb').onclick=function(){gallery.SHOWVIEW(this)}
+document.querySelector('#CenterB').onclick=function(){SKILL.SHOWVIEW(this);StartSkills()}
+document.querySelector("#HAMBURGER").onclick=showMenu;
+
 console.log(Mirror);
+
+function showMenu(e)
+{
+
+  let a=  document.querySelector("#BAR");
+  const sty = getComputedStyle(a)
+  if(sty.display=="none")
+  {
+  a.style.display = "flex";
+  }else
+  {
+    a.style.display = "none";
+  }
+}

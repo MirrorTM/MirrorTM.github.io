@@ -21,7 +21,7 @@ req.onload = function() {
       BGH.autoplay=false;
       BGH.loop=true;
       BGH.muted=true;
-      BGH.playbackRate = 0.8;
+      BGH.playbackRate = 1;
       BGH.play();
 
       var event = new CustomEvent("LOADED" , {detail:{BGH,BGH}});

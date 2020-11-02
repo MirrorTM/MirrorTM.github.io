@@ -3,7 +3,7 @@ import {Mirror } from "./APP.js";
 let template=`
 <div id="Wb" ><p alt="HoverMe">Works</p></div>
 <span></span>
-<div id="CenterB" onclick="CLOUD.SHOWVIEW();" ><p alt="HoverMe">Skills</p></div>
+<div id="CenterB" ><p alt="HoverMe">Skills</p></div>
 <span></span>
 <div  onclick="window.location.href = 'http://www.instagram.com/mirrordsgn';"><p alt="HoverMe">Instagram</p></div>
 <span></span>

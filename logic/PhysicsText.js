@@ -1,3 +1,4 @@
+
 let lkk = function(p)
 {
 var Engine = Matter.Engine,
@@ -6,13 +7,14 @@ var Engine = Matter.Engine,
   MouseConstraint = Matter.MouseConstraint,
   Mouse = Matter.Mouse,
   Bodies = Matter.Bodies;
-function SHg(b,w,h)
+
+  function SHg(b,w,h)
 {
   let pos = b.position;
     let angle = b.angle;
 
     p.push();
-    p.translate(b.vertices[0].x, b.vertices[0].y);
+    //p.translate(b.vertices[0].x, b.vertices[0].y);
     p.rotate(angle);
     p.strokeWeight(1);
     p.stroke(255);
@@ -28,52 +30,61 @@ let boxes = [];
 let circles = [];
 let grounds=[];
 let mConstraint;
+let myFont;
 let H=0;
+let startT = 0;
 function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
 }
 
 let canvas;
 let sizes = [5, 10, 20, 30, 40];
-
+p.preload=function()
+{
+  myFont = p.loadFont('./css/fonts/Circe-ExtraBold.ttf');
+}
 p.setup =function() {
   canvas = p.createCanvas(windowWidth, windowHeight);
   engine = Engine.create();
   world = engine.world;
-  //  Engine.run(engine);
-  p.textSize(64);
+  p.textSize(82);
+
   
-   
+ 
  grounds.push(Bodies.rectangle(windowWidth/2,windowWidth/2 , windowWidth, 120, { isStatic: true }));
  grounds.push(Bodies.rectangle(0,height , 120, height, { isStatic: true }));
  grounds.push(Bodies.rectangle(width,height , 120, height, { isStatic: true }));
 
   World.add(world, grounds);
-    for (let text of Skills)
-      {
-      boxes.push(Bodies.rectangle(width/2+getRandomArbitrary(-380,380), 80, p.textWidth(text), 64));
-      World.add(world,boxes[boxes.length-1])
-      console.log(boxes)
-    } 
+    
   let mouse = Mouse.create(canvas.elt);
+  
   mouse.pixelRatio = p.pixelDensity() // for retina displays etc
   let options = {
-    mouse: mouse
+    mouse: mouse,
+    stifness:0.01
   }
   mConstraint = MouseConstraint.create(engine, options);
   World.add(world, mConstraint);
   Engine.run(engine);
+  p.textFont(myFont);
+ 
+  for (let text of Skills)
+      {
+      let bbox = myFont.textBounds(text.toUpperCase(), 0, 0, 82);
+      boxes.push(Bodies.rectangle(width/2+getRandomArbitrary(-380,380), 80, bbox.w, bbox.h));
+      World.add(world,boxes[boxes.length-1])
+    } 
+
   //p.background(0)
 }
 
 p.draw = function() {
   
-
-  //p.background(0);
-  squareColor = color(255, 255, 255);
-  squareColor.setAlpha(millis()/15);
-
-  p.fill(squareColor)
+  squareColor = color(0, 0, 0);
+  squareColor.setAlpha(78);
+  p.background(squareColor);
+  p.fill('white')
   p.strokeWeight(6);
  
   Engine.update(engine);
@@ -84,21 +95,29 @@ p.draw = function() {
     
     p.push();
 
-
-    //SHg(box,p.textWidth(Skills[i]),32);
-    p.translate(box.vertices[0].x, box.vertices[0].y+32);
-    p.rotate(box.angle);
-    //p.blendMode(DIFFERENCE);
-    p.stroke('black')
     
-    p.text(Skills[i],0,0);
+
+    p.translate(box.vertices[0].x, box.vertices[3].y);
+    let bbox = myFont.textBounds(Skills[i].toUpperCase(), 0, 0, 82);
+
+    //SHg(box,bbox.w,bbox.h);
+
+    p.rotate(box.angle);
+    p.blendMode(EXCLUSION);
+    
+    p.text(Skills[i].toUpperCase(),0,0);
     //p.blendMode(BLEND);
     
 
     p.pop()
   }
- 
-  
+ startT = p.millis();
 }
 }
-let myp5 = new p5(lkk);
+
+function StartSkills()
+{
+
+  myp5 = new p5(lkk,"SKILLS");
+}
+//let myp5 = new p5(lkk);

@@ -133,16 +133,26 @@ video
     /* transform-origin: 50% 50%;
     transform: translateX(-50%) scale(1) ; */
 }
+skills-skills
+{
+    width: 100%;
+    height:100%;
+    position: absolute;
+    top:0px;
+    left:0px;
+    z-index: -1;
+
+}
 #defaultCanvas1
 {
         background-color: black;
         object-fit: cover;
         width: 100%;
         height: 100vh;
-        position: fixed;
         top: 0px;
         left: 50%;
-        z-index: 5;
+        position: relative;
+        -webkit-filter: brightness(1.8);
         backface-visibility: hidden;
         overflow: hidden;
         /* filter:saturate(2.6) brightness(0.9); */
@@ -381,17 +391,36 @@ display: block;
     left:7vw;
     transform: translateX(-50%);
 }
+#copyright
+{
+    position: absolute;
+    top:100%;
+    left:0%;
+    height: 60px;
+    width: 60px;
+    color: white;
+    mix-blend-mode: difference;
+    text-align: center;
+    font-family: "CircleReg";
+    font-size: 2vh;
+    z-index: 12;
+    line-height: 60px;
+    text-overflow: none;
+    cursor: default;
+    display: inline-block;
+    white-space: nowrap;
+    transform: translateY(-100%) translateX(25%);
+}
 #AB
 {
     position: absolute;
     top:50%;
     left:50%;
     color: white;
-    text-transform: uppercase;
     mix-blend-mode: difference;
-    transform: translate(-50% , -50%);
+    transform: translate(-50% , -50%)  rotate3d(0.1,0,0,calc(var(--par)));
     text-align: center;
-    font-family: "DR";
+    font-family: "CircleEB";
     font-size: 7.5vw;
     line-height: 212px;
     letter-spacing: 0.1em;

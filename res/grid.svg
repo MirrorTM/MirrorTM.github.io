@@ -1,0 +1,44 @@
+<svg width="60" height="57" viewBox="0 0 60 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M45.5796 8.26629C44.0654 9.69838 44.0608 12.1071 45.5694 13.545L45.7632 13.7298C47.173 15.0735 49.3908 15.0692 50.7954 13.72C52.2905 12.284 52.2859 9.891 50.7853 8.46072L50.5914 8.27596C49.1895 6.93973 46.9867 6.93548 45.5796 8.26629Z" fill="url(#paint0_angular)"/>
+<path d="M59.4746 28.3406C59.4746 26.3027 57.8265 24.6485 55.7886 24.641C53.74 24.6334 52.0753 26.292 52.0753 28.3406V28.4863C52.0753 30.5349 53.74 32.1935 55.7886 32.186C57.8265 32.1784 59.4746 30.5243 59.4746 28.4863L59.4746 28.3406Z" fill="url(#paint1_angular)"/>
+<path d="M50.8331 48.3228C52.3083 46.9167 52.3128 44.5643 50.8431 43.1526C49.4623 41.8264 47.2821 41.8222 45.8962 43.1431L45.6133 43.4128C44.1302 44.8263 44.1348 47.1942 45.6233 48.602C47.0065 49.9102 49.172 49.906 50.5501 48.5925L50.8331 48.3228Z" fill="url(#paint2_angular)"/>
+<path d="M30.2044 56.5928C32.1206 56.5928 33.6762 55.0435 33.684 53.1273C33.6918 51.2001 32.1316 49.6336 30.2044 49.6336H29.6166C27.6894 49.6336 26.1292 51.2001 26.137 53.1273C26.1448 55.0435 27.7004 56.5928 29.6166 56.5928H30.2044Z" fill="url(#paint3_angular)"/>
+<path d="M9.27471 48.5963C10.6507 49.9077 12.8127 49.9119 14.1937 48.6058C15.6799 47.2002 15.6844 44.8361 14.2037 43.4248L13.9125 43.1473C12.5288 41.8285 10.3521 41.8327 8.97356 43.1568C7.50617 44.5663 7.5107 46.915 8.98352 48.3187L9.27471 48.5963Z" fill="url(#paint4_angular)"/>
+<path d="M0.346283 28.4946C0.346283 30.528 1.99071 32.1785 4.02409 32.186C6.06809 32.1935 7.72908 30.5386 7.72908 28.4946V28.3323C7.72908 26.2883 6.06809 24.6334 4.02409 24.6409C1.99071 24.6484 0.346283 26.2989 0.346283 28.3323V28.4946Z" fill="url(#paint5_angular)"/>
+<path d="M9.03134 8.46474C7.53306 9.89279 7.52845 12.282 9.0212 13.7159C10.4236 15.0629 12.6379 15.0672 14.0455 13.7256L14.2476 13.533C15.7539 12.0973 15.7492 9.69236 14.2374 8.26251C12.8325 6.93378 10.6331 6.93802 9.23339 8.27216L9.03134 8.46474Z" fill="url(#paint6_angular)"/>
+<path d="M29.7016 0.236206C27.7384 0.236206 26.1446 1.82349 26.1367 3.78669C26.1287 5.76117 27.7271 7.36607 29.7016 7.36607H30.1194C32.0939 7.36607 33.6923 5.76117 33.6843 3.78669C33.6764 1.82349 32.0827 0.236206 30.1194 0.236206H29.7016Z" fill="url(#paint7_angular)"/>
+<defs>
+<radialGradient id="paint0_angular" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(33.0546 30.5516) rotate(-88.3958) scale(28.8933 30.2237)">
+<stop offset="0.015625"/>
+<stop offset="1"/>
+</radialGradient>
+<radialGradient id="paint1_angular" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(33.0546 30.5516) rotate(-88.3958) scale(28.8933 30.2237)">
+<stop offset="0.015625"/>
+<stop offset="1"/>
+</radialGradient>
+<radialGradient id="paint2_angular" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(33.0546 30.5516) rotate(-88.3958) scale(28.8933 30.2237)">
+<stop offset="0.015625"/>
+<stop offset="1"/>
+</radialGradient>
+<radialGradient id="paint3_angular" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(33.0546 30.5516) rotate(-88.3958) scale(28.8933 30.2237)">
+<stop offset="0.015625"/>
+<stop offset="1"/>
+</radialGradient>
+<radialGradient id="paint4_angular" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(33.0546 30.5516) rotate(-88.3958) scale(28.8933 30.2237)">
+<stop offset="0.015625"/>
+<stop offset="1"/>
+</radialGradient>
+<radialGradient id="paint5_angular" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(33.0546 30.5516) rotate(-88.3958) scale(28.8933 30.2237)">
+<stop offset="0.015625"/>
+<stop offset="1"/>
+</radialGradient>
+<radialGradient id="paint6_angular" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(33.0546 30.5516) rotate(-88.3958) scale(28.8933 30.2237)">
+<stop offset="0.015625"/>
+<stop offset="1"/>
+</radialGradient>
+<radialGradient id="paint7_angular" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(33.0546 30.5516) rotate(-88.3958) scale(28.8933 30.2237)">
+<stop offset="0.015625"/>
+<stop offset="1"/>
+</radialGradient>
+</defs>
+</svg>

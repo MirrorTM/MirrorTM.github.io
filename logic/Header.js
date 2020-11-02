@@ -7,7 +7,7 @@ export class Header extends HTMLElement
         super();
 
         //this.CONT = document.createElement("div");
-        this.innerHTML=`<div id="AB"><p alt="Hover">Simply. =Design</p></div>`;
+        this.innerHTML=`<div id="AB"><p alt="Hover">'*arch#design'</p></div>`;
         //this.addEventListener("LOADED",this.PL);
 
         //this.innerHTML+='<link href="./css/loading.css" rel="stylesheet">'

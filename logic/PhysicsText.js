@@ -73,7 +73,7 @@ p.setup =function() {
   for (let text of Skills)
       {
       let bbox = myFont.textBounds(text.toUpperCase(), 0, 0, 82);
-      boxes.push(Bodies.rectangle(width/2+getRandomArbitrary(-380,380), -6000, bbox.w, bbox.h));
+      boxes.push(Bodies.rectangle(width/2+getRandomArbitrary(-380,380), -4000, bbox.w, bbox.h));
       World.add(world,boxes[boxes.length-1])
     } 
 

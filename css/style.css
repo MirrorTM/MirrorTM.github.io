@@ -423,10 +423,10 @@ display: block;
     left:50%;
     color: white;
     mix-blend-mode: difference;
-    transform: translate(-50% , -50%)   rotate3d(0.1,0,0,calc(var(--par)));
-   
+    transform: translate(-50% , -50%)   rotate3d(0.0,0.0,0.1,calc(var(--par)));
+    text-transform: uppercase;
     text-align: center;
-    font-family: "CircleEB";
+    font-family: "DR";
     font-size: 7.5vw;
     line-height: 212px;
     letter-spacing: 0.1em;

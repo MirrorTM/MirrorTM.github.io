@@ -16,7 +16,9 @@
     right: 0px;
     transform:  translate(-50%,50%);
 }
-@media (max-width: 767px) { 
+
+@media only screen and (max-width: 767px)
+{ 
     :root
     {
         --itemx:0;
@@ -24,22 +26,22 @@
         --mox:50vw;
         --moy:50vh;
     }
-    #Hero
-    {
-        
-       
-    }
     #dot
     {
         display: none;
     }
     #GalleryV2
     {
-        -webkit-perspective: 500px !important;
+        perspective: 6100px !important;
+        perspective: calc(12px)!important;
+        overflow-y: scroll!important;
+        perspective-origin: center!important;
     }
-    #GalleryV2 > img
+    #GalleryV2>img
     {
-        -webkit-perspective: 500px !important;
+        transform: none!important;
+        width: 1024px!important;
+        height: 512px!important;
         
     }
     logo-logo
@@ -51,6 +53,16 @@
     {
         width:208px;
         height: 120px;
+    }
+    #AB
+    {
+        transform: translate(-50% , -50%) rotateZ(90deg);
+    }
+    body>#Hero
+    {
+    width: calc(var(--actw) * 1.0);
+    height: auto;
+    transition: none;
     }
     #BAR{
         display: none;
@@ -72,11 +84,6 @@
         width:50%;
         transform: none !important;
         padding: 0;
-    }
-    #BAR>div:active ~#BAR
-    {
-        display: none;
-
     }
     #HAMBURGER
     {

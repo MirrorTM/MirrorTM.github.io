@@ -15,7 +15,6 @@ req.onload = function() {
       var videoBlob = this.response;
       var vid = URL.createObjectURL(videoBlob);
       BGH.src = vid;
-     
       console.log("loaded");
       BGH.setAttribute('playsinline', '');
       BGH.setAttribute('muted', '');

@@ -33,9 +33,13 @@ export class APP
 {
     constructor()
     {
+        
+
         this.MX=0;
         this.MY=0;
         this.Body=document.querySelector('body');
+        document.documentElement.style.setProperty('--down',screen.height/1080)
+        document.documentElement.style.setProperty('--add', screen.height - 1080 +'px' )
         this.loading=0;
         window.addEventListener('START',this.PRELOAD);       
         this.lastknownview = new A.LockScreen();

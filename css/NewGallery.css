@@ -53,6 +53,7 @@
     text-align: center;
     line-height: 100vh;
     color: white;
+    z-index: 6;
     text-transform: uppercase;
     font-family: CircleEB;
     opacity:var(--op);
@@ -60,6 +61,7 @@
     font-size: 7.5vw;
     position: absolute;
     word-wrap: break-word;
+    mix-blend-mode: difference;
     transition: all 1s;
     transform: translateY(var(--scrollY));
 }

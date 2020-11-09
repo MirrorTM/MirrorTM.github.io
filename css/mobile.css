@@ -32,10 +32,8 @@
     }
     #GalleryV2
     {
-        perspective: 6100px !important;
-        perspective: calc(12px)!important;
+        perspective: 10000px !important;
         overflow-y: scroll!important;
-        perspective-origin: center!important;
     }
     #GalleryV2>img
     {

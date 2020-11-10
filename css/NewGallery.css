@@ -46,7 +46,7 @@
 }
 #HDR
 {
-    width: 50vw;
+    width: 35vw;
     height: 100vh;
     top: 0px;
     right: 0px;
@@ -57,7 +57,6 @@
     text-transform: uppercase;
     font-family: CircleEB;
     opacity:var(--op);
-    padding-right: 5vw;
     font-size: 7.5vw;
     position: absolute;
     word-wrap: break-word;
@@ -82,7 +81,7 @@
 #GalleryV2 > img
 {
 
-    width: 50vw;
+    width: 90vw;
     height: 1024px;
     position: relative;
     overflow: visible;
@@ -90,7 +89,6 @@
     z-index: var(--disp) !important;
     opacity:var(--op);
     animation: A1 12s infinite;
-    transform: rotate3d(0.2,0.5,-0.0,90deg);
     transform-origin: 0 0;
     object-fit: cover;
     backface-visibility: hidden;

@@ -13,9 +13,9 @@
 #progress
 {
     background: url(../res/Loading.svg);
-    background-size: 512px 512px;
-    width:512px;
-    height:512px;
+    background-size: 100% 100%;
+    width:100%;
+    height:100%;
     position: absolute;
     color: white;
     -webkit-perspective: 500px;
@@ -25,13 +25,17 @@
 #prec
 {
     position: absolute;
-    background-color: rgb(59, 61, 60);
-    width: 715px;
-    height: 715px;
-    mix-blend-mode: multiply;
-    transform: translate(var(--mox),var(--moy)) translate(-50%,-50%);
-    -webkit-clip-path:inset(var(--Prog) 0% 0% 0%);
-    transition: all 1s;
+    width: fit-content;
+    height: fit-content;
+    color:white;
+    font-family: CircleReg;
+    font-size: 128px;
+    top:50%;
+    pointer-events: none;
+    left: 50%;
+    mix-blend-mode: difference;
+    z-index: 611;
+    transform: translate(-50%,-50%);
 }
 @keyframes rotate
 {

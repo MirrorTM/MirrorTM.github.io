@@ -11,6 +11,10 @@ export class LockScreen extends HTMLElement
         this.PROGR.id="progress";
         //this.PROGR.innerHTML=`Loading -> ${0}%`;
         this.appendChild(this.PROGR);
+        this.PROGR2 = document.createElement("div");
+        this.PROGR2.id="prec";
+
+        this.appendChild(this.PROGR2);
         //this.prec=document.createElement('div');
         //this.prec.id="prec";
         //this.appendChild(this.prec);
@@ -21,7 +25,7 @@ export class LockScreen extends HTMLElement
     Update(e)
     {
        // this.PROGR.innerHTML=`Loading -> ${e.detail.loadedPercentage}%`;
-       console.log(e.detail.loadedPercentage);
+       //console.log(e.detail.loadedPercentage);
        document.documentElement.style.setProperty('--Prog',100-e.detail.loadedPercentage+"%");
     }
 }

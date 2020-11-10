@@ -39,9 +39,9 @@ function draw() {
     
     angle = atan2(my - windowHeight/2, mx - windowWidth/2);
 
-    document.documentElement.style.setProperty('--mox',mx+'px');
-    document.documentElement.style.setProperty('--moy',my+'px');
-    document.documentElement.style.setProperty('--par',angle+'rad')
+    //document.documentElement.style.setProperty('--mox',mx+'px');
+    //document.documentElement.style.setProperty('--moy',my+'px');
+    //document.documentElement.style.setProperty('--par',angle+'rad')
     circle(mx,my,CUR.RAD)
 }
 

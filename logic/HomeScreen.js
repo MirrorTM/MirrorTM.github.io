@@ -19,11 +19,11 @@ export class HomeScreen extends HTMLElement
         this.appendChild(e.detail.BGH);
         Mirror.PLACE(this);
         this.SHOWVIEW(Mirror.Logo.children[0]);
-
     }
     SHOWTEXT(e)
     {
         document.documentElement.style.setProperty('--opc',1);
+        Mirror.Body.removeChild(document.querySelector('#blocker'))
     }
 }
 customElements.define('home-screen', HomeScreen);

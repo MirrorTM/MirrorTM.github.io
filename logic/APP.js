@@ -70,24 +70,8 @@ function Err(e,l,r)
     l._queue.pause();
     l.reset();
 }
-function HandleGallery(l,r)
-{
-        r.data.onmouseenter = gallery.ShowImg;
-        r.data.id="item";
-        Container.appendChild(r.data);     
-}
-function PreloadGallery()
-{
-    QUE2 = new RL.Loader();
-    QUE2.onLoad.add(HandleGallery);
-    QUE2.onError.add(Err);
 
-    for(let i=1;i<=82;i++)
-    {
-        QUE2.add(`/prij/1/${i}.jpg`);
-    }
-    QUE2.load();
-}
+
 
 
 export let Mirror = new APP();
@@ -97,7 +81,8 @@ function onImageLoad(e)
 {
     e.detail.data.onmouseenter = gallery.ShowImg;
     e.detail.data.id="item";
-    gallery.appendChild(e.detail.data);   
+    e.detail.data.src
+    gallery.children[](e.detail.data);   
 }
 
 window.addEventListener("ImageLoaded",onImageLoad);
@@ -108,12 +93,11 @@ ToP.id="spacer";
 
 Mirror.PLACE(gallery.Hero);
 Mirror.PLACE(gallery);
-Mirror.PLACE(ToP);
+//Mirror.PLACE(ToP);
 document.querySelector('#Wb').onclick=function(){gallery.SHOWVIEW(this)}
 document.querySelector('#CenterB').onclick=function(){SKILL.SHOWVIEW(this);StartSkills()}
 document.querySelector("#HAMBURGER").onclick=showMenu;
 
-console.log(Mirror);
 
 function showMenu(e)
 {

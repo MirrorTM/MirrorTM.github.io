@@ -23,7 +23,7 @@ export class HomeScreen extends HTMLElement
     SHOWTEXT(e)
     {
         document.documentElement.style.setProperty('--opc',1);
-        Mirror.Body.removeChild(document.querySelector('#blocker'))
+       // Mirror.Body.removeChild(document.querySelector('#blocker'))
     }
 }
 customElements.define('home-screen', HomeScreen);

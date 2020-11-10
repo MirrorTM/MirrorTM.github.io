@@ -92,7 +92,7 @@ export class Gallery extends HTMLElement
     }
     PreloadGallery()
     {
-        for(let i=1;i<=82;i++)
+        for(let i=2;i<=20;i++)
         {
             this.QUE2.add(`/prij/1/${i}.jpg`);
         }

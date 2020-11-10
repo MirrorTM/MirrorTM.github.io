@@ -73,7 +73,6 @@ function Err(e,l,r)
 
 
 
-
 export let Mirror = new APP();
 export let gallery=new Gallery();
 export let SKILL=new sk.Skills();
@@ -81,8 +80,7 @@ function onImageLoad(e)
 {
     e.detail.data.onmouseenter = gallery.ShowImg;
     e.detail.data.id="item";
-    e.detail.data.src
-    gallery.children[](e.detail.data);   
+    gallery.appendChild(e.detail.data);   
 }
 
 window.addEventListener("ImageLoaded",onImageLoad);

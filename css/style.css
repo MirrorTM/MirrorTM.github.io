@@ -76,9 +76,9 @@ canvas {
   }
   @keyframes hue
 {
-    0%{filter:  hue-rotate(0deg) saturate(2); -webkit-filter:  hue-rotate(0deg) saturate(2);}
-    50%{filter:  hue-rotate(180deg) saturate(1); -webkit-filter:  hue-rotate(180deg) saturate(1);}
-    100%{filter:  hue-rotate(0deg) saturate(1); -webkit-filter:  hue-rotate(0deg) saturate(1);}
+    0%{filter: hue-rotate(0deg) saturate(2) sepia(1); -webkit-filter:  sepia(1) hue-rotate(0deg) saturate(2) ;}
+    50%{filter: hue-rotate(360deg) saturate(3) sepia(1); -webkit-filter:  sepia(1) hue-rotate(360deg) saturate(4);}
+    100%{filter:  hue-rotate(0deg) saturate(2)  sepia(1); -webkit-filter: sepia(1) hue-rotate(0deg) saturate(2);}
 }
 .stain
 {
@@ -130,7 +130,7 @@ video
     height: 1080px;
     position: fixed;
     top: var(--add);
-    animation: hue 9s infinite;
+    animation: hue 15s infinite;
     left: calc(50% - 473.5px);
     transform-origin: 50% 100%;
     transform: scale(var(--down)) ;
@@ -219,14 +219,16 @@ skills-skills
 }
 #BAR>div>p
 {
-    -webkit-transition: transform 0.5s;
     -webkit-font-smoothing: antialiased;
     flex:1;
+    border-color: rgba(255, 255, 255, 0);
+
+    -webkit-transition: transform 0.1s;
 
 }
 #BAR > div >p:hover
 {
-    -webkit-transition: transform 0.3s;
+    -webkit-transition: transform 0.2s;
     animation-name: none;
     transform-origin: 50% 50%;
     transform:  translate(-50%, -50%) translateX(var(--itemx) ) translateY(var(--itemy)) !important;
@@ -310,6 +312,15 @@ mix-blend-mode: difference;
 
 background: #FFFFFF;
 }
+
+.clicked p::after
+{
+    opacity: 1!important;
+    position: absolute;
+    transition: all 1s !important;
+    content: ".";
+    
+}
 logo-logo
 {
     position: absolute;
@@ -318,6 +329,8 @@ logo-logo
     top: 0px;
     height: 6.250vw;
     z-index: 9;
+    opacity: var(--opc);
+    -webkit-transition: opacity 1s;
     font-size:48px;
     color: white;
     letter-spacing: 0.12em;
@@ -422,6 +435,7 @@ display: block;
     position: absolute;
     top:50%;
     left:50%;
+    height: fit-content;
     color: white;
     mix-blend-mode: difference;
     transform: translate(-50% , -50%)  ;
@@ -429,10 +443,16 @@ display: block;
     text-align: center;
     font-family: "DR";
     font-size: 7.5vw;
-    line-height: 212px;
+    padding: 0px;
+    margin: 0px;
     letter-spacing: 0.1em;
     width: fit-content;
     z-index: 5;
+}
+#AB > p
+{
+    width: fit-content;
+    height: fit-content;
 }
 #email:hover
 {

@@ -15,6 +15,13 @@ function SHOWVIEW(e)
     
     let left = e.getBoundingClientRect().left;
     document.documentElement.style.setProperty('--dot',(left+(e.offsetWidth))+"px")
+    let el=document.querySelector('.clicked')
+    if(el)
+    {
+        el.classList.remove('clicked');
+
+    }
+    e.classList.toggle("clicked");
     if(this!=Mirror.lastknownview)
     {
         Mirror.lastknownview.classList.add('HIDE');
